@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>카드실습</title>
+    <style>
+      @font-face {
+        font-family: "Pretendard-Regular";
+        src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+          format("woff");
+        font-weight: 400;
+        font-style: normal;
+      }
+      body {
+        background-color: lightgray;
+      }
+      .no-prof,
+      .prof-ver {
+        display: inline-block;
+        margin: 30px;
+        letter-spacing: -0.05em;
+        font-family: "Pretendard-Regular";
+      }
+      .no-prof {
+        background-color: white;
+        width: 450px;
+        height: 550px;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+        position: relative;
+      }
+      .thumbnail div {
+        height: 0;
+        padding-top: 68%;
+        position: relative;
+      }
+      .thumbnail div img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .text {
+        padding-left: 25px;
+        padding-right: 25px;
+        line-height: 1.7;
+      }
+      p {
+        overflow: hidden;
+        /* 글자 여러 줄일 때 n줄로 자르면서 말줄임표 넣기 */
+        text-overflow: ellipsis;
+        font-size: 20px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        color: gray;
+      }
+      .read-link {
+        position: absolute;
+        bottom: 30px;
+        text-decoration: none;
+        padding-left: 40px;
+        font-size: 24px;
+        color: black;
+        font-weight: bold;
+      }
+      .read-link span {
+        text-decoration: underline;
+      }
+      /* 프로필 있는 버전 */
+      .prof-ver {
+        background-color: white;
+        width: 450px;
+        height: 600px;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+        position: relative;
+      }
+      .prof div {
+        display: inline-block;
+      }
+      .userprof {
+        font-size: 100%;
+        text-decoration: none;
+        font: inherit;
+        position: relative;
+      }
+      .title {
+        position: absolute;
+        top: -15px;
+        left: 80px;
+        white-space: nowrap; /* 줄바꿈 안 되게 함 */
+      }
+      .userinfo {
+        position: absolute;
+        top: 1em;
+        left: 80px;
+        font-weight: normal;
+        color: gray;
+      }
+      .prof {
+        margin-left: 20px;
+        position: relative;
+      }
+      .prof img {
+        /* margin-left: 20px; */
+        width: 60px;
+        border-radius: 50%;
+        position: absolute;
+        top: 20px;
+        left: 0;
+      }
+      .prof-ver .thumbnail {
+        margin-top: 80px;
+      }
+      .links div {
+        position: absolute;
+        bottom: 15px;
+        right: 30px;
+      }
+      button {
+        all: unset;
+      }
+      .links button img {
+        width: 50px;
+      }
+      .read-link img {
+        height: 10px;
+        margin-left: 20px;
+        margin-bottom: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="no-prof">
+      <div class="thumbnail">
+        <div><img src="img/thumbnail.png" alt="" /></div>
+      </div>
+      <div class="text">
+        <h2>그것을 피가 청춘을 것이다</h2>
+        <p>
+          청춘의 하였으며, 이것은 몸이 때문이다. 사는가 고동을 용기가 충분히
+          청춘 것이다. 얼마나 반짝이는 소담스러운 긴문장긴문장 반복 더긴문장
+          청춘의 하였으며, 이것은 몸이 때문이다. 사는가 고동을 용기가 충분히
+          청춘 것이다. 얼마나 반짝이는 소담스러운 긴문장긴문장 반복 더긴문장
+          청춘의 하였으며, 이것은 몸이 때문이다. 사는가 고동을 용기가 충분히
+          청춘 것이다. 얼마나 반짝이는 소담스러운 긴문장긴문장 반복 더긴문장
+        </p>
+      </div>
+      <a href="###" class="read-link">
+        <span>Read</span>
+      </a>
+    </div>
+    <!-- 첫번째 끝 두번째 시작 -->
+    <div class="prof-ver">
+      <div class="prof">
+        <div><img src="img/profile.png" alt="" /></div>
+        <div class="userprof">
+          <h2 class="title">그것을 피가 청춘을 것이다</h2>
+          <h3 class="userinfo">secondary</h3>
+        </div>
+      </div>
+
+      <div class="thumbnail">
+        <div><img src="img/thumbnail.png" alt="" /></div>
+      </div>
+      <div class="text">
+        <p>
+          청춘의 하였으며, 이것은 몸이 때문이다. 사는가 고동을 용기가 충분히
+          청춘 것이다. 얼마나 반짝이는 소담스러운 긴문장긴문장 반복 더긴문장
+          청춘의 하였으며, 이것은 몸이 때문이다. 사는가 고동을 용기가 충분히
+          청춘 것이다. 얼마나 반짝이는 소담스러운 긴문장긴문장 반복 더긴문장
+          청춘의 하였으며, 이것은 몸이 때문이다. 사는가 고동을 용기가 충분히
+          청춘 것이다. 얼마나 반짝이는 소담스러운 긴문장긴문장 반복 더긴문장
+        </p>
+      </div>
+      <div class="links">
+        <a href="###" class="read-link">
+          <span>Read</span> <img src="img/Vector 7.png" alt="" />
+        </a>
+        <div>
+          <button type="button">
+            <img src="img/icon-heart.svg" alt="좋아요" />
+          </button>
+          <button type="button">
+            <img src="img/icon-share.svg" alt="공유하기" />
+          </button>
+          <button type="button">
+            <img src="img/icon-more.svg" alt="메뉴 더보기" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

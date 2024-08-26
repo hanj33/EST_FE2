@@ -1,0 +1,174 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff")
+    format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --main-color: #29363d;
+  --sub-color: #5a6a72;
+}
+
+body {
+  font-family: "Pretendard-Regular", sans-serif;
+  color: var(--main-color);
+  background-color: gray;
+  /*  */
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 27px;
+}
+
+button {
+  all: unset;
+}
+
+/* 공통속성 */
+article {
+  width: 288px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+/* 말줄임 - 두줄 */
+p {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* 2줄 넘어가면 말줄임 */
+}
+
+.read {
+  font-family: "Pretendard-Regular";
+  font-weight: 800;
+  font-size: 14px;
+  text-decoration: underline;
+  width: 70px;
+  padding: 3 6;
+}
+
+/* 첫번째카드 */
+.card1 {
+  height: 348px;
+}
+
+.card1 img {
+  width: 100%;
+  aspect-ratio: 288/196;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  /* 왜 아티클에 히든으로 안 넣고 이렇게 넣지 */
+}
+
+.card1 .textgroup {
+  padding: 20px 16px 16px;
+}
+
+.card1 h2 {
+  font-family: "Pretendard-Regular";
+  font-weight: 700;
+}
+
+.card1 .content {
+  margin: 16px 0;
+  font-size: 12px;
+}
+
+/* 두번째 카드 */
+.card2 {
+  position: relative;
+}
+
+.card2 header {
+  height: 68px;
+}
+
+.card2 header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.card2 .title {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 200px;
+  height: 40px;
+}
+
+.card2 h3 {
+  font-family: "Pretendard-Regular";
+  font-weight: 700;
+  line-height: 19.2px;
+  margin-bottom: 1px;
+}
+
+.card2 .title p {
+  font-size: 12px;
+  line-height: 14.4px;
+  color: var(--sub-color);
+}
+
+.card2 .thumbnail {
+  width: 100%;
+  aspect-ratio: 288/196;
+  object-fit: cover;
+}
+
+.card2 .content {
+  padding: 10px 16px 16px;
+}
+
+.card2 .content .text {
+  font-size: 12px;
+  line-height: 19.2px;
+  color: var(--sub-color);
+}
+
+.card2 .read {
+  position: relative;
+}
+
+.card2 .read::after {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  right: 0;
+  border-style: solid;
+  border-width: 2px 2px 0 0;
+  transform: translate(-10px 50%) rotate(45deg);
+}
+
+.card2 .btn-group {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+}
+
+.btn-group img {
+  width: 32px;
+  height: 32px;
+  vertical-align: top;
+}
+
+.card2 button:nth-child(2),
+.card2 button:nth-child(3) {
+  margin-left: 8px;
+}

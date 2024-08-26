@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>플렉스크기유지</title>
+    <style>
+      header,
+      footer {
+        background-color: mediumaquamarine;
+        padding: 30px;
+        display: flex;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        background-color: darkslategray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container section {
+        color: white;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        /* 남는 공간만큼 채워주기 -- 시작 */
+        flex-grow: 1;
+        /* 남는 공간만큼 채워주기 -- 끝 */
+      }
+      .container aside {
+        background-color: olivedrab;
+        color: white;
+        flex-shrink: 0;
+        flex-basis: 200px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+      footer {
+        background-color: darkcyan;
+      }
+    </style>
+  </head>
+  <body>
+    <header>header</header>
+    <div class="container">
+      <section>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ratione
+        laborum ipsa molestiae suscipit hic laboriosam dolore possimus rerum,
+        corporis, vel delectus nulla ex quisquam dolorum nobis eum dolorem
+        tenetur!
+      </section>
+      <aside>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, aliquam
+        ex. Ab optio odio earum cupiditate fuga, a facere unde impedit modi
+        asperiores ullam repudiandae nisi! Autem minus temporibus repudiandae.
+      </aside>
+    </div>
+    <footer>footer</footer>
+  </body>
+</html>

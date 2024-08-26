@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>레이아웃 나눠보기</title>
+    <style>
+      div {
+        background-color: darkolivegreen;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+
+        /* position: relative; */
+
+        width: 600px;
+        height: 600px;
+      }
+      header {
+        background-color: skyblue;
+      }
+      section {
+        background-color: royalblue;
+      }
+      aside {
+        background-color: greenyellow;
+        color: black;
+      }
+      footer {
+        background-color: coral;
+      }
+
+      /* 1. float 사용하기 */
+
+      /* div .container {
+        padding: 20px;
+      }
+      header {
+        height: 150px;
+        line-height: 150px;
+        text-align: center;
+      }
+
+      section {
+        width: 390px;
+        height: 260px;
+        line-height: 260px;
+        text-align: center;
+
+        float: left;
+        text-align: center;
+
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      aside {
+        width: 190px;
+        height: 260px;
+        line-height: 260px;
+        text-align: center;
+
+        float: right;
+        text-align: center;
+
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+
+      footer {
+        height: 150px;
+        line-height: 150px;
+        text-align: center;
+      } */
+
+      /* 2. flex 사용하기 */
+      div .container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        gap: 20px;
+        padding: 20px;
+      }
+      header {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+      }
+      footer {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        flex-grow: 1;
+      }
+      main {
+        width: 100%;
+        height: 20%;
+        flex-grow: 2;
+
+        display: flex;
+        gap: 20px;
+      }
+      main section {
+        flex-grow: 2;
+        flex-basis: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      main aside {
+        flex-grow: 1;
+        flex-basis: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* 3-1. grid-area 사용하기 */
+
+      /* 3-2. grid-template 사용하기 */
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="container">
+        <header>header</header>
+        <main class="clearfix">
+          <section>section</section>
+          <aside>aside</aside>
+        </main>
+        <footer>footer</footer>
+      </div>
+    </div>
+  </body>
+</html>

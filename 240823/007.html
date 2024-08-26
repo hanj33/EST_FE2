@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가상클래스심화333</title>
+    <style>
+      /* 나중에 배울 내용 == 시작 */
+      .txt-hide {
+        position: absolute;
+        clip: rect(0 0 0 0);
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+      }
+      /* 나중에 배울 내용 == 끝 */
+      .label-hold {
+        /* 커스텀 체크박스 넣을 거니까 가상요소들이 위치 잡을 수 있게 relative 넣어줌 */
+        position: relative;
+      }
+      .label-hold::before {
+        content: "";
+        display: inline-block; /* 앞에 들어갈 거랑 일렬로 배치되어야 함 */
+        width: 16px;
+        height: 16px;
+        border: 1px solid black;
+        margin-right: 10px;
+        vertical-align: -3px;
+      }
+      .label-hold::after {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: url(https://cdn.discordapp.com/attachments/1266268920973754403/1276431029841956874/checkmark.png?ex=66c98088&is=66c82f08&hm=d834420812168504b2928af574601fdc044cc8f1ed54e0d9d923d4944e3d1a57&)
+          0 0/16px no-repeat;
+
+        position: absolute;
+        top: 3px;
+        left: 1px;
+
+        /* 체크 안 했을 때도 보이면 안 되니까 일단 불투명도 0 */
+        opacity: 0;
+      }
+
+      /* 체크됐을 때 불투명도 1 될 수 있게 함 */
+      .checkbox:checked + .label-hold::after {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="checkbox" id="checkbox" class="checkbox txt-hide" />
+    <label for="checkbox" class="label-hold">체크박스</label>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>그리드 아이템</title>
+    <style>
+      .container {
+        display: grid;
+        width: 800px;
+        height: 800px;
+        /* background-color: wheat; */
+
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+        grid-template-areas:
+          "header header header header header" "section1 section1 section1 section1 aside"
+          "section2 section2 section3 section3 aside" "section2 section2 section3 section3 aside" "footer footer footer footer footer";
+
+        grid-gap: 10px;
+      }
+      .item {
+        font-size: 25px;
+        font-weight: bold;
+      }
+      .item1 {
+        /* grid-column: 1 / span3; */
+        background-color: #c3e0e3;
+        grid-area: header;
+      }
+      .item2 {
+        background-color: #8fb4b8;
+        grid-area: aside;
+      }
+      .item3 {
+        background-color: #56888e;
+        grid-area: section1;
+      }
+      .item4 {
+        background-color: #2c5e63;
+        color: white;
+        grid-area: section2;
+      }
+      .item5 {
+        background-color: #103539;
+        color: white;
+        grid-area: section3;
+      }
+      .item6 {
+        background-color: #052e33;
+        color: white;
+        grid-area: footer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item item1">item1</div>
+      <div class="item item2">item2</div>
+      <div class="item item3">item3</div>
+      <div class="item item4">item4</div>
+      <div class="item item5">item5</div>
+      <div class="item item6">item6</div>
+    </div>
+  </body>
+</html>

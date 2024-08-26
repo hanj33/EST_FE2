@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>포지션</title>
+    <style>
+      body {
+        height: 200vh;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: darkkhaki;
+      }
+      .parents {
+        background-color: mediumturquoise;
+        position: relative;
+        top: 100px;
+        left: 100px;
+        height: 1000px;
+        width: 500px;
+      }
+      .absolute {
+        position: absolute;
+        top: 100px;
+        left: 100px;
+      }
+      .fixed {
+        position: fixed;
+        right: 40px;
+        bottom: 40px;
+      }
+      .sticky {
+        position: sticky;
+        top: 50px;
+        left: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parents">
+      <div class="box absolute">absolute</div>
+      <div class="box fixed">fixed</div>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque eveniet
+      dolorum, sit explicabo laborum sequi optio ipsa voluptate impedit. Vitae
+      non error nostrum dolores voluptates. Corrupti nesciunt debitis distinctio
+      aut. Libero obcaecati debitis soluta doloribus praesentium sapiente,
+      aliquam, saepe, accusamus molestiae excepturi sint! Autem minus ad dolorem
+      consequuntur culpa cumque deleniti accusamus sed amet. Facilis harum
+      blanditiis obcaecati error in. Eveniet similique debitis, facere
+      architecto inventore accusantium error esse nemo mollitia odio voluptatum,
+      illum reiciendis vel autem, iusto eligendi totam qui fuga illo minus ad
+      aliquid quas nihil! Nostrum, laborum! Magnam omnis facilis animi neque
+      nam, non dolore sint nulla illo facere deleniti voluptate eligendi
+      perferendis saepe sequi id atque ipsam quaerat incidunt in deserunt!
+      Mollitia corporis accusamus nemo placeat. Lorem ipsum dolor sit amet
+      consectetur adipisicing elit. Atque eveniet dolorum, sit explicabo laborum
+
+      <div class="box sticky">sticky</div>
+    </div>
+  </body>
+</html>

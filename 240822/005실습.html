@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>플렉스실습</title>
+    <style>
+      .container {
+        display: flex;
+
+        gap: 10px;
+        padding: 10px;
+      }
+      .item {
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        color: white;
+        font-size: 30px;
+
+        padding: 40px;
+        background-color: cadetblue;
+        border-radius: 10px;
+        flex-grow: 1;
+      }
+      .container2 .item {
+        height: 120px;
+        line-height: 120px;
+      }
+      .item3 {
+        flex-grow: 6;
+        background-color: steelblue;
+      }
+      .item5 {
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container container1">
+      <div class="item item1">1</div>
+    </div>
+    <div class="container container2">
+      <div class="item item2">2</div>
+      <div class="item item3">3</div>
+      <div class="item item4">4</div>
+    </div>
+    <div class="container container3">
+      <div class="item item5">5</div>
+    </div>
+  </body>
+</html>
