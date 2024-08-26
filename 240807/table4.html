@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구매내역</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        font-family: Arial, sans-serif;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+      }
+      th {
+        background-color: #f4f4f4;
+      }
+      caption {
+        caption-side: top;
+        font-weight: bold;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <caption>
+        구매 내역
+      </caption>
+      <thead>
+        <tr>
+          <th id="purchase">구매 항목</th>
+          <th id="location">장소</th>
+          <th id="date">날짜</th>
+          <th id="color">색상</th>
+          <th id="cost">비용</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th id="mac">맥북</th>
+          <td headers="location mac">가로수길 애플스토어</td>
+          <td headers="date mac">12/09</td>
+          <td headers="color mac">실버</td>
+          <td headers="cost mac">1,900,000</td>
+        </tr>
+        <tr>
+          <th id="item1">물건1</th>
+          <td headers="location item1">홈쇼핑</td>
+          <td headers="date item1">08/27</td>
+          <td headers="color item1">화이트</td>
+          <td headers="cost item1">5,500,000</td>
+        </tr>
+        <tr>
+          <th id="item2">물건2</th>
+          <td headers="location item2">편의점</td>
+          <td headers="date item2">05/30</td>
+          <td headers="color item2">블루</td>
+          <td headers="cost item2">8,000,000</td>
+        </tr>
+        <tr>
+          <th id="item3">물건3</th>
+          <td headers="location item3">대형마트</td>
+          <td headers="date item3">03/31</td>
+          <td headers="color item3">버건디</td>
+          <td headers="cost item3">300,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

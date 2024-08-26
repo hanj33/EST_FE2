@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인화면-보충</title>
+    <style>
+      /* 스크린리더만 읽게 하고 브라우저에선 보이지 않게 만들기 */
+      .sr-only {
+        position: absolute;
+        left: -9999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+
+      article {
+        background-color: rgba(85, 91, 159, 0.564);
+      }
+
+      .login-b {
+        background-color: blueviolet;
+        padding: 3px 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <h2 class="sr-only">로그인</h2>
+      <p>더 편리해진 위니브에 오신 것을 환영합니다.</p>
+      <a> <img src="img/weniv-logo.png" alt="weniv" /> 로그인 </a>
+      <div>
+        <img src="img/icon-lock.png" alt="" width="20" />
+        <a href="#">아이디</a>
+        <!-- 추후 가상요소 배우면 추가함 -->
+        <span>| </span>
+        <a href="#"> 비밀번호</a> 찾기
+      </div>
+      <div>
+        <img src="img/icon-user.png" alt="" width="20" />
+        <a href="#">회원가입</a>
+      </div>
+    </article>
+  </body>
+</html>

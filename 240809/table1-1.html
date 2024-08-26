@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수능 성적표</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        border: 3px solid #000;
+        table-layout: fixed;
+        width: 100%;
+      }
+
+      caption {
+        caption-side: bottom;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #000;
+        padding: 6px 20px;
+      }
+
+      th {
+        background-color: #eee;
+      }
+
+      td {
+        text-align: center;
+      }
+
+      tfoot {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <caption>
+        2023 학년도 대학 수능능력시험 성적통지표
+      </caption>
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th id="hanguksa" rowspan="2">한국사 영역</th>
+          <th id="gugeo">국어 영역</th>
+          <th id="suhak">수학 영역</th>
+          <th id="english" rowspan="2">영어 영역</th>
+          <th id="tamgu" colspan="2">탐구 영역</th>
+          <th id="2nd-hanmun">제 2 외국어 /한문 영역</th>
+        </tr>
+        <th id="choice">선택과목</th>
+        <th headers="gugeo" id="hwajak">화법과 작문</th>
+        <th headers="suhak" id="hwaktong">확률과 통계</th>
+        <th headers="tamgu " id="saengyun">생활과 윤리</th>
+        <th headers="tamgu" id="jigwa1">지구과학 1</th>
+        <th headers="2nd-hanmun " id="german">독일어</th>
+      </thead>
+      <tbody>
+        <tr>
+          <th id="pyojun">표준점수</th>
+          <td headers="hanguksa" rowspan="2">&nbsp;</td>
+          <td headers="gugeo hwajak pyojun">131</td>
+          <td headers="suhak hwaktong pyojun">137</td>
+          <td headers="english pyojun" rowspan="2">&nbsp;</td>
+          <td headers="tamgu saengyun pyojun">53</td>
+          <td headers="tamgu jigwa1 pyojun">64</td>
+          <td headers="2nd-hanmun german pyojun" rowspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+          <th id="100">백분위</th>
+          <td headers="gugeo hwajak 100">93</td>
+          <td headers="suhak hwaktong 100">95</td>
+          <td headers="tamgu saengyun 100">75</td>
+          <td headers="tamgu jigwa1 100">93</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th id="score">등급</th>
+          <td headers="hanguksa score">2</td>
+          <td headers="gugeo hwajak score">2</td>
+          <td headers="suhak hwaktong score">2</td>
+          <td headers="english score">1</td>
+          <td headers="tamgu saengyun score">1</td>
+          <td headers="tamgu jigwa1 score">2</td>
+          <td headers="2nd-hanmun german score">2</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>
