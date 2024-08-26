@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인모달</title>
+    <style>
+      .sr-only {
+        position: absolute;
+        left: -9999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="post">
+      <article>
+        <h2>로그인 또는 회원가입</h2>
+        <button type="button">닫기</button>
+        <h3 class="sr-only">아이디로 로그인 또는 회원가입</h3>
+        <p>위니브에서 여러분의 궁금증을 해결하세요! :)</p>
+        <input type="text" id="id" name="id" placeholder="아이디" /> <br />
+        <!-- 스크린리더 어디에 어떻게 넣어야 돼... -->
+        <input
+          type="password"
+          id="pw"
+          name="pw"
+          required
+          placeholder="비밀번호"
+        />
+        <br />
+        <input type="checkbox" name="maintain--login" id="maintain--login" />
+        <label for="maintain--login">로그인 상태 유지</label>
+        <br />
+        <input type="submit" value="로그인" />
+        <br />
+        <a href="###">회원가입</a>
+        <span>|</span>
+        <a href="###">아이디/비밀번호 찾기</a>
+        <h3 class="sr-only">SNS 계정으로 로그인</h3>
+        <p>또는</p>
+        <ul>
+          <li>
+            <button>
+              <a href="###">구글 계정으로 로그인</a>
+            </button>
+          </li>
+          <li>
+            <button>
+              <a href="###">페이스북 계정으로 로그인</a>
+            </button>
+          </li>
+          <li>
+            <button>
+              <a href="###">네이버 계정으로 로그인</a>
+            </button>
+          </li>
+          <li>
+            <button>
+              <a href="###">카카오톡 계정으로 로그인</a>
+            </button>
+          </li>
+        </ul>
+      </article>
+    </form>
+  </body>
+</html>

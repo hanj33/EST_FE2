@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습</title>
+    <style>
+      body {
+        font-size: 1.2rem;
+      }
+      span {
+        padding: 20px;
+        display: inline-block;
+        font-weight: bold;
+      }
+      span:nth-child(2n + 1) {
+        color: black;
+      }
+      span:nth-child(2n) {
+        color: white;
+      }
+      span:first-child {
+        background-color: red;
+        border: 1rem solid black;
+      }
+      span:nth-child(2) {
+        background-color: orange;
+      }
+      span:nth-child(3) {
+        background-color: yellow;
+      }
+      span:nth-child(4) {
+        background-color: olivedrab;
+      }
+      span:nth-child(5) {
+        background-color: royalblue;
+      }
+      span:nth-child(6) {
+        background-color: navy;
+      }
+      span:last-child {
+        background-color: darkorchid;
+        border: 1rem solid black;
+      }
+      li {
+        font-weight: bold;
+      }
+      li:first-child::before {
+        content: "🦊";
+      }
+      li:not(:first-child)::before {
+        content: "💙";
+      }
+      li:not(:last-child)::after {
+        content: "강사님";
+        color: lightgray;
+        font-size: 0.7em;
+      }
+      li:last-child::after {
+        content: "멘토님";
+        color: lightgray;
+        font-size: 0.7em;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <span>빨강</span>
+      <span>주황</span>
+      <span>노랑</span>
+      <span>초록</span>
+      <span>파랑</span>
+      <span>남색</span>
+      <span>보라</span>
+    </div>
+
+    <ul>
+      <li>지지</li>
+      <li>로지</li>
+      <li>웨이드</li>
+      <li>하티</li>
+      <li>라이캣</li>
+      <li>승범</li>
+    </ul>
+  </body>
+</html>

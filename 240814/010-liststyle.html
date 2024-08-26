@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>리스트스타일</title>
+    <style>
+      .image-list {
+        list-style-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' height='20' width='20' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'><polyline points='20 6 9 17 4 12'></polyline></svg>");
+      }
+      .custom-bullets {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .custom-bullets li {
+        padding-left: 1em;
+        position: relative;
+      }
+      .custom-bullets li::before {
+        content: "🍎";
+        position: absolute;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="image-list">
+      <li>밥 먹기</li>
+      <li>산책 하기</li>
+      <li>CSS 복습하기</li>
+    </ul>
+    <ul class="custom-bullets">
+      <li>사과</li>
+      <li>바나나</li>
+      <li>오렌지</li>
+    </ul>
+  </body>
+</html>

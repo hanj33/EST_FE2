@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0814</title>
+    <style>
+      /*
+      [type] {
+        border: 0;
+      } /* 이 속성을 가진 애들한테 적용*/
+      [type="button"] {
+        border: 2px solid blue;
+      } /* 이 속성+이 값을 가진 애들한테 적용*/
+      [class="가나다라마바사"] {
+        background-color: rosybrown;
+      }
+      /* class^="##" ##로 시작하는 클래스명
+      class$="##" ##로 끝나는 클래스명
+      class*="" ##을 포함하는 클래스명  */
+      */
+      /* 특성 선택자 */
+
+      /* 특정 속성을 지니고 있는 요소 */
+      [type] {
+        border: 0;
+      }
+
+      /* 특정 속성에 특정 값을 지니고 있는 요소 */
+      [type="button"] {
+        border: 1px solid black;
+      }
+
+      /* 특정 문자열로 시작하는 속성값을 가진 요소 */
+      [class^="btn"] {
+        background-color: aquamarine;
+      }
+
+      /* 특정 문자열로 끝나는 속성값을 가진 요소 */
+      [class$="btn"] {
+        background-color: hotpink;
+      }
+
+      /* 특정 문자열을 포함하는 속성값을 가진 요소 */
+      [class*="btn"] {
+        font-size: 32px;
+      }
+
+      /* 그룹 선택자 */
+      h1,
+      h3,
+      h2 {
+        color: blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" />
+    <input type="button" value="버튼" />
+    <input type="text" class="가나다라마바사" />
+    <input type="text" class="아자차카타파하" />
+  </body>
+</html>

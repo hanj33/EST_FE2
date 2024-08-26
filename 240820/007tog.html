@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습다같이</title>
+    <style>
+      p {
+        display: inline-block;
+        font-size: 2rem;
+        padding: 20px 30px; /* 컨텐츠값에 따라서 레이아웃이 달라지면 안 되니까 주로 패딩으로 정렬해줌*/
+      }
+      .box1 {
+        background-color: cornflowerblue;
+        color: white;
+        border: 10px solid black;
+        box-shadow: inset 10px 10px 0 0 gray;
+      }
+      .box2 {
+        background: rgb(160, 201, 198);
+        background: linear-gradient(
+          90deg,
+          rgba(160, 201, 198, 1) 18%,
+          rgba(88, 113, 154, 1) 52%,
+          rgba(38, 74, 94, 1) 91%
+        );
+        color: white;
+        border: 10px solid darkgrey;
+        border-style: dashed;
+        border-radius: 50px;
+        background-clip: padding-box;
+      }
+      .box3 {
+        border: 5px solid lightgrey;
+        border-radius: 0 50px 50px 50px;
+        box-shadow: rgba(0, 0, 0, 0.2) 8px 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="box1">Hello✋</p>
+    <p class="box2">Hello✋</p>
+    <p class="box3">Hello✋</p>
+  </body>
+</html>

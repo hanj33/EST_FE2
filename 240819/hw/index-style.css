@@ -1,0 +1,28 @@
+.address-list li:not(:last-child)::after {
+  content: " |";
+}
+
+.sr-only {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.sns-list img {
+  width: 2rem;
+}
+
+.now-screen img {
+  width: 10rem;
+}
+/* article 크기에 맞춰서 조정해야 될 듯? 그럼 아티클 크기를 지정해야 하고,, */
+
+.score img {
+  width: 1.2rem;
+}
+.play-trailer img {
+  width: 1.2rem;
+}

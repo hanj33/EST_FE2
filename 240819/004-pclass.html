@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가상클래스4444</title>
+    <style>
+      :root {
+        --main-color: hotpink;
+        --point-color-1: royalblue;
+        --point-color-2: purple;
+        --main-font-size: 30px;
+        --btn-padding: 10px 20px;
+      }
+
+      body {
+        color: var(--main-color);
+        font-size: var(--main-font-size);
+      }
+      button {
+        border: 3px solid var(--main-color);
+        padding: var(--btn-padding);
+        color: var(--main-color);
+      }
+      .class111 button {
+        background-color: var(--point-color-1);
+      }
+      .class222 button {
+        background-color: var(--point-color-2);
+      }
+    </style>
+  </head>
+  <body>
+    <p>가나다가나다가나다</p>
+    <button>이것은 버튼입니다</button>
+    <div class="class111">
+      <p>반가워요</p>
+      <button>이것도 버튼이에요</button>
+    </div>
+    <div class="class222">
+      <p>안녕하세요</p>
+      <button>저것도 버튼인데요</button>
+    </div>
+  </body>
+</html>

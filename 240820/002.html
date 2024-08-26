@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>박스모델22222</title>
+    <style>
+      /* body {
+        display: flex;
+        자식요소 정리해주는 속성
+      } */
+      div {
+        margin-top: 50px;
+        margin-left: 50px;
+        /* 캡처하려고 넣은 마진값이라 무시해도 됨 */
+        background-color: cadetblue;
+        /* 여기까지만 쓰면 블록레벨요소라서 차곡차곡 쌓임
+        그래서 인라인처럼 보이도록 바꿀 건데 그러려면 쓰는 거 */
+        /* display: inline-block; */
+        /* 이거나 위에 쓴 display: flex 하면 됨 */
+      }
+      .rad1 {
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+      }
+      .rad2 {
+        width: 200px;
+        height: 200px;
+        border-radius: 20px;
+      }
+      .rad3 {
+        width: 200px;
+        height: 200px;
+        border-radius: 200px 0px 0px;
+      }
+      .rad4 {
+        width: 200px;
+        height: 200px;
+        border-radius: 200px 0px;
+      }
+      .rad5 {
+        width: 200px;
+        height: 200px;
+        border-radius: 0px 100px;
+      }
+      .rad6 {
+        width: 200px;
+        height: 100px;
+        border-radius: 100px 100px 0px 0px;
+      }
+      /* div를 맨 마지막에 넣었더니 width/height을 각각 넣어버림,, */
+    </style>
+  </head>
+  <body>
+    <div class="rad1"></div>
+    <div class="rad2"></div>
+    <div class="rad3"></div>
+    <div class="rad4"></div>
+    <div class="rad5"></div>
+    <div class="rad6"></div>
+  </body>
+</html>

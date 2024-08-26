@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>복합선택자 스타일</title>
+    <style>
+      section p {
+        color: rgb(29, 45, 96);
+        font-size: 25px;
+        font-weight: bolder;
+      }
+      /*  */
+      /* 직계자손 */
+      section > p {
+        color: palevioletred;
+      }
+      /*  */
+      /* 일반형제(뒤에 있는 애들만 됨) */
+      section ~ p {
+        font-size: 40px;
+      }
+      /*  */
+      /* 바로 뒤에 있는 형제만 */
+      section + p {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Lorem ipsum dolor sit amet</p>
+    <p>Lorem ipsum dolor sit amet</p>
+    <p>Lorem ipsum dolor sit amet</p>
+    <section>
+      <p>Lorem ipsum dolor sit amet</p>
+      <p>Lorem ipsum dolor sit amet</p>
+      <h2>lorem</h2>
+      <h3>lorem</h3>
+      <div>
+        <p>Lorem ipsum dolor sit amet</p>
+      </div>
+      <p>Lorem ipsum dolor sit amet</p>
+    </section>
+    <p>Lorem ipsum dolor sit amet</p>
+    <p>Lorem ipsum dolor sit amet</p>
+    <p>Lorem ipsum dolor sit amet</p>
+    <h2>loremlorem</h2>
+    <h3>loremlorem</h3>
+    <p>Lorem ipsum dolor sit amet</p>
+    <p>Lorem ipsum dolor sit amet</p>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>폼연습</title>
+  </head>
+  <body>
+    <!-- <select name="" id="">
+      <option value="" disabled selected>옵션 선택</option>
+      <option value="옵션1">옵션1</option>
+      <option value="옵션2">옵션2</option>
+    </select> -->
+    <label for="language">개발언어 선택</label>
+    <select name="" id="language">
+      <optgroup label="옵션선택">
+        <option value="1">옵션1</option>
+        <option value="2">옵션2</option>
+      </optgroup>
+    </select>
+    <hr />
+    <fieldset>
+      <legend>성별</legend>
+      <input type="radio" name="gender" value="male" id="male" />
+      <label for="male">남자</label>
+      <input type="radio" name="gender" value="female" id="female" />
+      <label for="female">여자</label>
+      <input type="radio" name="gender" value="none" id="none" />
+      <label for="none">선택안함</label>
+      <!-- 이중에서 선택해! 이중 하나만!<이라는 거 지정하고 싶으면
+       name 속성으로 이 선택지들은 같은 그룹이라고 묶어줘야 함 -->
+    </fieldset>
+    <hr />
+    <form action="">
+      <label for="broswers">사용하는 브라우저를 선택하세요</label>
+      <input list="broswers" />
+      <datalist id="broswers">
+        <option value="chrome"></option>
+        <option value="firefox"></option>
+        <option value="safari"></option>
+        <option value="whale"></option>
+        <option value="internet explorer"></option>
+      </datalist>
+    </form>
+  </body>
+</html>

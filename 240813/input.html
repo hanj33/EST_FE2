@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>input</title>
+    <!-- input 자동줄바꿈 -->
+    <style>
+      input {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="http://localhost/login.html" method="get">
+      <input type="button" value="버튼입니다" />
+      <input type="text" max="10" />
+      <input type="tel" />
+      <input type="password" />
+      <input type="checkbox" />
+      <input type="radio" />
+      <input type="date" name="" id="" />
+      <input type="datetime-local" />
+      <input type="month" name="" id="" />
+      <input type="time" />
+      <input type="file" />
+      <!-- 이 몬생긴 버튼 css로 커스텀이 안 됨..
+       그래서 label 태그 넣어서 for-id로 연결하고 저 몬생긴 버튼을 안 보이게 처리해주면 됨 -->
+      <input type="color" />
+      <input type="number" min="0" />
+      <input type="range" />
+      <input type="search" />
+      <input type="reset" />
+      <input type="submit" />
+    </form>
+  </body>
+</html>

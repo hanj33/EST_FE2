@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>두근두근 비밀일기</title>
+    <link rel="icon" href="src/favicon.png" />
+    <link rel="stylesheet" href="dokidiary.css" />
+    <style>
+      .sr-only {
+        position: absolute;
+        left: -9999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href="main.html">
+          <!--로그인 여부에 따라서 메인으로 오거나 로그인창으로 보내야 되는데...-->
+          <img src="src/logo.svg" alt="두근두근비밀일기" />
+        </a>
+      </h1>
+      <p>환영합니다 <strong class="user-name">가나다</strong>님!</p>
+      <!-- 사용자 닉네임에 따라서 username이 바뀌었으면 좋겠는데 어떻게 하는지 모름 -->
+      <button type="button">
+        <img src="src/icon-logout.svg" alt="" /> 로그아웃
+        <!-- 버튼 이름 있으니까 alt값 굳이 안 넣어도 될 것 같음 -->
+      </button>
+    </header>
+    <main>
+      <section>
+        <h2><img src="src/heart.svg" alt="" /> ###의 비밀일기</h2>
+        <!-- 날짜 어떻게 넣는 거지 -->
+        <form action="">
+          <label for="title" class="sr-only">일기 제목</label>
+          <input type="text" id="title" placeholder="제목" />
+          <label for="diary" class="sr-only"></label>
+          <input
+            type="textarea"
+            id="diary"
+            placeholder="오늘의 비밀은 무엇인가요?"
+          />
+          <button type="submit">작성하기</button>
+        </form>
+      </section>
+      <section>
+        <h2 class="sr-only">일기 목록</h2>
+        <ol>
+          <li>
+            <article>
+              <img src="src/box.png" alt="" />
+              <!-- 이 안으로 어떻게 넣지 -->
+              <h3>제목</h3>
+              <!-- 사용자가 넣은 제목으로 표시하려면 어떻게 해야 해 -->
+              <time datetime="">시간</time>
+              <!-- 등록시간으로 표시하는 건 어떻게 해야 해... -->
+              <p>일기내용</p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <img src="src/box.png" alt="" />
+              <h3>제목</h3>
+              <time datetime="">시간</time>
+              <p>일기내용</p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <img src="src/box.png" alt="" />
+              <h3>제목</h3>
+              <time datetime="">시간</time>
+              <p>일기내용</p>
+            </article>
+          </li>
+          <li>
+            <article>
+              <img src="src/box.png" alt="" />
+              <h3>제목</h3>
+              <time datetime="">시간</time>
+              <p>일기내용</p>
+            </article>
+          </li>
+        </ol>
+      </section>
+    </main>
+    <footer>
+      <p>Copyright 2023. WENIV All rights reserved.</p>
+    </footer>
+  </body>
+</html>

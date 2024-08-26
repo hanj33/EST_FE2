@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가상클래스22222</title>
+    <style>
+      li:first-child {
+        color: rebeccapurple;
+      }
+      li:last-child {
+        color: aquamarine;
+      }
+      li:nth-child(3) {
+        background-color: antiquewhite;
+      }
+      li:nth-child(odd) {
+        color: lightcoral;
+        font-weight: bold;
+      }
+      li:nth-child(even) {
+        color: lightseagreen;
+      }
+      /* n이 아무리 커져도 정수값으로 나오는 건 1, 2, 3밖에 없음 */
+      li:nth-child(-n + 3) {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>리스트1111</li>
+      <li>리스트2222</li>
+      <li>리스트3333</li>
+      <li>리스트4444</li>
+      <li>리스트55555</li>
+      <li>리스트66666</li>
+      <li>리스트7777</li>
+      <li>리스트8888</li>
+      <li>리스트9999</li>
+      <li>리스트10101010</li>
+    </ul>
+  </body>
+</html>

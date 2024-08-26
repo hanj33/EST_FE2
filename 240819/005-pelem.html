@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가상요소111111</title>
+    <style>
+      p::before {
+        content: "어서 오세요! ";
+        font-weight: bold;
+        color: seagreen;
+      }
+      p::after {
+        content: "잘 부탁드립니다";
+        margin-left: 1rem;
+      }
+      textarea {
+        width: 30%;
+        height: 10rem;
+        border: none;
+        resize: none;
+      }
+      textarea:focus {
+        outline-color: salmon;
+        box-shadow: 0 0 5px red;
+      }
+    </style>
+  </head>
+  <body>
+    <p>안녕하세요 <strong>만나서</strong> 반가워요</p>
+    <form action="">
+      <input type="text" placeholder="입력창" />
+      <textarea placeholder="더 길게 입력해보세요" rows="20"></textarea>
+    </form>
+  </body>
+</html>

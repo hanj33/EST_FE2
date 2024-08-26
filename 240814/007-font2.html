@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>글꼴크기</title>
+    <style>
+      .no-transform {
+        text-transform: none;
+      } /*변화없음(기본값)*/
+      .uppercase {
+        text-transform: uppercase;
+      } /*모든 글자를 대문자로*/
+      .lowercase {
+        text-transform: lowercase;
+      } /*모든 글자를 소문자로*/
+      .capitalize {
+        text-transform: capitalize;
+      } /*모든 단어의 첫 글자만 대문자로*/
+      .first-letter::first-letter {
+        text-transform: uppercase;
+      } /*매애애애ㅐㅇㄴ 첨 글자만 대문자로*/
+      .underline {
+        text-decoration: underline;
+      }
+      .overline {
+        text-decoration: overline;
+      }
+      .line-through {
+        text-decoration: line-through;
+      }
+      .dashed {
+        text-decoration: lime underline overline dashed auto;
+        font-weight: bold;
+      }
+      .wavy {
+        text-decoration-color: royalblue;
+        text-decoration-line: line-through underline overline;
+        text-decoration-style: wavy;
+        text-decoration-thickness: 2px;
+      }
+      .simple-shadow {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      .multiple-shadows {
+        text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em rgb(51, 0, 80);
+      }
+      .left-align {
+        text-align: left;
+      }
+      .right-align {
+        text-align: right;
+      }
+      .center-align {
+        text-align: center;
+      }
+      .justify-align {
+        text-align: justify;
+      }
+      .normal-line-height {
+        line-height: normal;
+      }
+      .increased-line-height {
+        line-height: 3;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>텍스트대문자소문자</h2>
+    <p class="no-transform">Hello World</p>
+    <p class="uppercase">Hello World</p>
+    <p class="lowercase">Hello World</p>
+    <p class="capitalize">Hello World</p>
+    <p class="first-letter">hello world</p>
+    <hr />
+    <h2>텍스트데코레이션</h2>
+    <p class="underline">밑줄이 그어진 텍스트</p>
+    <p class="overline">윗줄이 그어진 텍스트</p>
+    <p class="line-through">취소선이 그어진 텍스트</p>
+    <p class="dashed">대시 스타일의 장식</p>
+    <p class="wavy">웨이브 스타일의 다중 장식</p>
+    <hr />
+    <h2>그림자효과</h2>
+    <h2 class="simple-shadow">간단한 그림자</h2>
+
+    <h2 class="multiple-shadows">다중 그림자 효과</h2>
+    <hr />
+    <h2>텍스트정렬</h2>
+    <p class="left-align">
+      이 텍스트는 왼쪽 정렬입니다. 웹에서 가장 일반적인 정렬 방식입니다.
+    </p>
+    <p class="right-align">
+      이 텍스트는 오른쪽 정렬입니다. 주로 날짜나 숫자 등에 사용됩니다.
+    </p>
+    <p class="center-align">
+      이 텍스트는 중앙 정렬입니다. 제목이나 특별한 강조가 필요한 경우에
+      사용합니다.
+    </p>
+    <p class="justify-align">
+      이 텍스트는 양쪽 정렬입니다. 긴 문단에 사용될 수 있지만, 불규칙한 간격으로
+      인해 가독성이 떨어질 수 있습니다. 따라서 사용시 주의가 필요합니다.
+    </p>
+    <hr />
+    <h2>행간 설정하기</h2>
+    <p class="normal-line-height">
+      이 텍스트는 기본 행간을 사용합니다. 때로는 줄 간격이 좁아 가독성이 떨어질
+      수 있습니다.
+    </p>
+    <p class="increased-line-height">
+      이 텍스트는 증가된 행간을 사용합니다. 줄 사이의 간격이 넓어져 읽기가 더
+      쉬워집니다.
+    </p>
+  </body>
+</html>

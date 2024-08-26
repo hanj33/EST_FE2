@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>단위 설정해보기</title>
+    <style>
+      .box {
+        width: 800px;
+        height: 100px;
+        background-color: #f0f0f0;
+        border: 1px solid #000;
+        padding: 10px;
+      }
+      .parent {
+        width: 600px;
+        background-color: #e0e0e0;
+        padding: 10px;
+      }
+      .child {
+        width: 50%;
+        background-color: #b0b0b0;
+        padding: 10px;
+      }
+      .viewport-box {
+        width: 50vw;
+        height: 30vh;
+        background-color: #d0d0d0;
+        border: 1px solid #000;
+        padding: 10px;
+      }
+      .vmin {
+        background-color: cornflowerblue;
+        width: 50vmin;
+      }
+      .vmax {
+        background-color: cornflowerblue;
+        width: 90vmax;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">이 상자의 크기는 픽셀로 지정되었습니다.</div>
+    <hr />
+    <div class="parent">
+      <div class="child">이 요소는 부모의 50% 너비를 가집니다.</div>
+    </div>
+    <hr />
+    <div class="viewport-box">
+      이 상자는 뷰포트의 50% 너비와 30% 높이를 가집니다.
+    </div>
+    <hr />
+    <div class="vmin">
+      <strong>div width: 50vmin;</strong>
+      <br />
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium animi
+      saepe magnam dolores vel, quis impedit? Ea alias repellendus eius
+      voluptatum. Debitis incidunt autem esse perspiciatis culpa natus, nisi
+      voluptatum!
+    </div>
+    <br />
+
+    <div class="vmax">
+      <strong>div width: 50vmax;</strong>
+      <br />
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium animi
+      saepe magnam dolores vel, quis impedit? Ea alias repellendus eius
+      voluptatum. Debitis incidunt autem esse perspiciatis culpa natus, nisi
+      voluptatum!
+    </div>
+  </body>
+</html>

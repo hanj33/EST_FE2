@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가상클래스3333</title>
+    <style>
+      /* div 안에서 동일한 요소 가진 것 중에 첫 번째
+        div랑 클래스 사이에 안 띄면 div들 중 첫 번째<가 돼서 결과 달라짐 */
+      div :nth-of-type(1) {
+        color: red;
+      }
+      div :only-of-type {
+        background-color: lightgreen;
+      }
+      div :not(:first-child) {
+        font-size: 15px;
+      }
+      div :not(:last-child) {
+        text-decoration: underline;
+        text-indent: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>가나다가나다가나다</h1>
+      <h2>가나다가나다가나다</h2>
+      <h2>가나다가나다가나다</h2>
+      <p>유일한요소</p>
+      <h3>가나다가나다가나다</h3>
+      <h1>가나다가나다가나다</h1>
+      <h2>가나다가나다가나다</h2>
+      <h3>가나다가나다가나다</h3>
+      <h1>가나다가나다가나다</h1>
+      <h2>가나다가나다가나다</h2>
+      <h3>가나다가나다가나다</h3>
+    </div>
+    <!-- <div>
+      <h1>가나다가나다가나다</h1>
+      <h2>가나다가나다가나다</h2>
+      <h2>가나다가나다가나다</h2>
+      <h3>가나다가나다가나다</h3>
+      <h1>가나다가나다가나다</h1>
+      <h2>가나다가나다가나다</h2>
+      <h3>가나다가나다가나다</h3>
+      <h1>가나다가나다가나다</h1>
+      <h2>가나다가나다가나다</h2>
+      <h3>가나다가나다가나다</h3>
+    </div> -->
+  </body>
+</html>
