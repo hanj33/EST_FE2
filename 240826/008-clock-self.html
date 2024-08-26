@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>시계애니메이션</title>
+    <style>
+      @keyframes time {
+        100% {
+          transform: rotate(1turn);
+        }
+      }
+
+      .container {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-color: skyblue;
+
+        position: relative;
+      }
+      .container > div {
+        position: absolute;
+        left: 100px;
+        top: 100px;
+        /* animation-timing-function: linear; */
+        transform-origin: 50% top;
+        animation-iteration-count: infinite;
+      }
+      .sec {
+        width: 3px;
+        height: 90px;
+        background-color: maroon;
+
+        animation-name: time;
+        animation-duration: 6s;
+        animation-timing-function: steps(6);
+      }
+      .min {
+        width: 5px;
+        height: 70px;
+        background-color: darkslategray;
+
+        animation-name: time;
+        animation-duration: 12s;
+        animation-timing-function: steps(12);
+      }
+      .hour {
+        width: 8px;
+        height: 50px;
+        background-color: lightslategrey;
+
+        animation-name: time;
+        animation-duration: 24s;
+        animation-timing-function: steps(24);
+      }
+    </style>
+  </head>
+  <body>
+    <article class="container">
+      <div class="sec"></div>
+      <div class="min"></div>
+      <div class="hour"></div>
+    </article>
+  </body>
+</html>

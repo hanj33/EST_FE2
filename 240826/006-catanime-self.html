@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>고양이애니메이션</title>
+    <style>
+      @keyframes move-cat {
+        20% {
+          background-image: url(src/2.png);
+          transform: translate(100px, 0);
+        }
+        40% {
+          background-image: url(src/1.png);
+          transform: translate(200px, 0);
+        }
+        60% {
+          background-image: url(src/3.png);
+          transform: translate(300px, 0);
+        }
+        80% {
+          background-image: url(src/2.png);
+          transform: translate(400px, 0);
+        }
+        100% {
+          background-image: url(src/1.png);
+          transform: translate(500px, 0);
+        }
+      }
+      .cat {
+        width: 313px;
+        height: 436px;
+
+        margin: 50px;
+        /* border: 2px solid black; */
+        background-image: url(src/3.png);
+
+        animation-name: move-cat;
+
+        animation-duration: 5s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cat"></div>
+  </body>
+</html>
