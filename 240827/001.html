@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D</title>
+    <style>
+      @keyframes rotateX {
+        from {
+          transform: rotateX(0);
+        }
+        to {
+          transform: rotateX(360deg);
+        }
+      }
+      .container {
+        display: flex;
+        padding: 50px;
+        background-color: coral;
+
+        perspective: 500px;
+      }
+      .item {
+        width: 150px;
+        height: 100px;
+        background-color: mediumaquamarine;
+        border: 1px solid black;
+
+        /* transform: rotateY(80deg); */
+        animation-name: rotateX;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </body>
+</html>
