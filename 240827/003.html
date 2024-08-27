@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D트랜스폼</title>
+    <style>
+      .container {
+        perspective: 500px;
+        display: flex;
+
+        justify-content: center;
+      }
+      .item {
+        width: 200px;
+        height: 200px;
+        background-color: mediumaquamarine;
+
+        transition: all 1s;
+
+        text-align: center;
+        align-content: center;
+      }
+      .item:hover {
+        transform: translateZ(100px);
+      }
+
+      .container2 {
+        perspective: 500px;
+      }
+      .container2 > div {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 30px;
+        background-color: orchid;
+      }
+
+      .box1 {
+        transform: scaleZ(1) rotateY(75deg);
+      }
+      .box2 {
+        transform: scaleZ(2) rotateY(75deg);
+      }
+      .box3 {
+        transform: scaleZ(3) rotateY(75deg);
+      }
+    </style>
+  </head>
+  <body>
+    <h2>transform</h2>
+    <div class="container">
+      <div class="item">hover me</div>
+    </div>
+    <div class="container2">
+      <div class="box1"></div>
+      <div class="box2"></div>
+      <div class="box3"></div>
+    </div>
+  </body>
+</html>
