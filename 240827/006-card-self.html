@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>카드실습</title>
+    <style>
+      body {
+        height: 100vh;
+        background: rgb(160, 201, 198);
+        background: linear-gradient(
+          32deg,
+          rgba(160, 201, 198, 1) 18%,
+          rgba(88, 113, 154, 1) 52%,
+          rgba(38, 74, 94, 1) 91%
+        );
+      }
+      .container {
+        perspective: 1000px;
+      }
+      .item {
+        width: 177px;
+        height: 260px;
+        border-radius: 5px;
+
+        background-color: wheat;
+
+        margin-top: 150px;
+
+        position: relative;
+        top: 50%;
+        left: 40%;
+        transform: translate(-50% -50%);
+
+        transition: all 1s;
+        transform-style: preserve-3d;
+      }
+
+      .item:hover {
+        transform: rotateY(1.5turn) scale(1.5);
+      }
+
+      .item::before,
+      .item::after {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        font-size: 32px;
+        font-weight: bold;
+        color: white;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        backface-visibility: hidden;
+      }
+      .item::before {
+        content: "";
+        background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3c938f85-f834-4bb3-b3b2-97d295769464/dal6wsb-fc4aaba4-d6ff-4029-a83f-9b518abd511d.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTpmaWxlLmRvd25sb2FkIl0sIm9iaiI6W1t7InBhdGgiOiIvZi8zYzkzOGY4NS1mODM0LTRiYjMtYjNiMi05N2QyOTU3Njk0NjQvZGFsNndzYi1mYzRhYWJhNC1kNmZmLTQwMjktYTgzZi05YjUxOGFiZDUxMWQucG5nIn1dXX0._Al6plUB_BwuHO4MI18fPE6GgtgvtaTTUGRHdqVo0sg);
+
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+
+        border-radius: 5px;
+
+        background-color: cadetblue;
+      }
+      .item::after {
+        content: "";
+        font-size: 10px;
+        font-weight: bold;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        /* background-image: url(https://i.namu.wiki/i/Q0P1xNEb1gfAXhS66yZeCZKSIxvYjaZ6QopgXwNpdXZ7dfrKWf2DJwzX8Sh2wEY2Us0PoTFm5Ie_ezGuQIOZYQ.webp); */
+        background-image: url(https://www.cardmaker.net/uploads/cardmaker_resources/1/other/Border.png);
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+
+        border-radius: 5px;
+
+        background-color: maroon;
+        transform: rotateY(180deg);
+      }
+      .card-back {
+        color: white;
+        text-align: center;
+        /* backface-visibility: hidden; */
+        transform: rotateY(180deg);
+      }
+
+      .content-img {
+        width: 140px;
+        height: auto;
+        transform: rotateY(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">
+        <div class="card-front"></div>
+      </div>
+    </div>
+  </body>
+</html>
