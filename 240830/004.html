@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반응형 이미지</title>
+  </head>
+  <body>
+    <img
+      srcset="
+        src/chilli_360px.jpg   360w,
+        src/chilli_720px.jpg   720w,
+        src/chilli_1440px.jpg 1440w
+      "
+      src="src/chilli_360px.jpg"
+      alt="다람쥐 캐릭터 칠리"
+    />
+    <img
+      srcset="
+        src/chilli_360px.jpg   360w,
+        src/chilli_720px.jpg   720w,
+        src/chilli_1440px.jpg 1440w
+      "
+      sizes="(max-width: 360px) 200px,
+      (max-width: 720px) 400px,
+      800px"
+      src="src/chilli_360px.jpg"
+      alt="다람쥐 캐릭터 칠리"
+    />
+  </body>
+</html>
