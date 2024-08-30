@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>타이틀</title>
+    <style>
+      div {
+        background-color: cadetblue;
+        width: calc(100% - 60px);
+        width: min(900px, 90%);
+        height: 200px;
+        margin: auto;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      li {
+        list-style: none;
+        background-color: coral;
+        float: left;
+        width: calc((100% - (40px * 2)) / 3);
+
+        font-size: clamp(1rem, 2.5vw, 3rem);
+      }
+      li:not(:first-child) {
+        margin-left: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>Hello World</div>
+    <ul>
+      <li>1. 눈을 떴다</li>
+      <li>2. 졸리다</li>
+      <li>3. 너무 졸려</li>
+    </ul>
+  </body>
+</html>
