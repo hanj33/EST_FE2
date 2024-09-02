@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div>hello world</div>
+    <div class="text-base">hello world</div>
+    <div class="text-lg">hello world</div>
+    <div class="text-xl">hello world</div>
+    <div class="text-2xl">hello world</div>
+
+    <!-- 패딩... 둘째 줄부터 차례대로 탑/바텀/라이트/레프트 -->
+    <div class="text-2xl p-4 bg-sky-600">hello world</div>
+    <div class="text-2xl pt-4 bg-sky-600">hello world</div>
+    <div class="text-2xl pb-4 bg-sky-600">hello world</div>
+    <div class="text-2xl pr-4 bg-sky-600">hello world</div>
+    <div class="text-2xl pl-4 bg-sky-600">hello world</div>
+
+    <!-- 마진... 둘째 줄부터 차례대로 탑/바텀/라이트/레프트 -->
+    <!-- !!!!!!!!!!! 테일윈드에도 마진병합 현상 있음 !!!!!!!!!!! -->
+    <div class="text-2xl m-4 bg-sky-600">hello world</div>
+    <div class="text-2xl mt-4 bg-sky-600">hello world</div>
+    <div class="text-2xl mb-4 bg-sky-600">hello world</div>
+    <div class="text-2xl mr-4 bg-sky-600">hello world</div>
+    <div class="text-2xl ml-4 bg-sky-600">hello world</div>
+    <!-- my는 먼가요? y축으로 마진 넣는 거임 그럼 상하로 들어감 -->
+    <div class="text-2xl my-4 bg-sky-600">hello world</div>
+
+    <!-- 요소 사이사이 여백 넣기 -->
+    <div class="space-y-4">
+      <div class="bg-gray-200">hello world</div>
+      <div class="bg-gray-200">hello world</div>
+      <div class="bg-gray-200">hello world</div>
+    </div>
+    <div class="space-x-4">
+      <span class="bg-gray-200">hello world</span>
+      <span class="bg-gray-200">hello world</span>
+      <span class="bg-gray-200">hello world</span>
+    </div>
+
+    <div class="p-5 bg-blue-200">
+      <ul>
+        <li>hello world</li>
+        <li>hello world</li>
+        <li>hello world</li>
+      </ul>
+    </div>
+    <div class="p-5 bg-blue-200">
+      <ul class="list-disc">
+        <li>hello world</li>
+        <li>hello world</li>
+        <li>hello world</li>
+      </ul>
+    </div>
+    <div class="p-5 bg-blue-200">
+      <ul>
+        <li class="list-disc">hello world</li>
+        <li class="list-disc">hello world</li>
+        <li class="list-disc">hello world</li>
+      </ul>
+    </div>
+    <div class="p-5 bg-blue-200">
+      <ol>
+        <li class="list-decimal">hello world</li>
+        <li class="list-decimal">hello world</li>
+        <li class="list-decimal">hello world</li>
+      </ol>
+    </div>
+
+    <div class="w-40 h-40 bg-red-200"></div>
+    <br />
+    <div class="w-40 h-40 bg-red-200 rounded"></div>
+    <br />
+    <div class="w-40 h-40 bg-red-200 rounded-lg"></div>
+    <br />
+    <div class="w-40 h-40 bg-red-200 rounded-2xl"></div>
+    <br />
+    <div class="w-40 h-40 bg-red-200 rounded-full"></div>
+    <br />
+  </body>
+</html>
