@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변수스코프</title>
+  </head>
+  <body>
+    <script>
+      var a = "뭔가"; //전역스코프
+
+      function func() {
+        var a = "somesome";
+        var b = "something"; //지역스코프
+        console.log(a); //이건 가장 가까운 애로 써짐
+        console.log(window.a); //전역스코프로 접근
+        console.log(b);
+      }
+
+      func();
+      //   console.log(b);
+
+      if (true) {
+        let c = 30;
+        console.log(c);
+
+        var d = 40; //전역스코프((함수(func) 안에 들어간 거 아니고 조건문에 들어간 거라 전역으로 취급))
+      }
+    </script>
+  </body>
+</html>
