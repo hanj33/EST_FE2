@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변수이름규칙</title>
+  </head>
+  <body>
+    <script>
+      //변수 이름 작성 규칙
+      //변수 선언은 어떻게? 변수키워드 변수이름
+
+      // 1. 변수 이름에는 문자, 숫자, 언더바(_)랑 달러($)만 사용 가능
+      let name123$_;
+
+      // 2. 변수 이름은 숫자로 시작할 수 없음
+      // let 123name;
+      let name12;
+      let $_name;
+
+      // 3. 예약어 사용 불가(명령어,, 키워드 등등등 그런 걸로는 사용 불가 약간 겜에서 npc이름을 닉넴으로 사용 못하는 거랑 비슷한 듯)
+      //   const var;
+
+      // 4. 대소문자 구분함
+      let name, NAME, Name;
+      name = "name";
+      NAME = "NAME";
+      Name = "Name";
+      console.log(name, NAME, Name);
+
+      //변수명 작성 관습
+      //이렇게 쓰면 좋다!
+      // 1. 변수나 함수의 이름은 카멜표기법 사용해보기(첫 문자 제외 단어마다 대문자)
+      let userName; //사용자이름
+
+      // 2. 비공개속성이나 함수 내부의 변수(외부에 공개, private)
+      let _private;
+
+      // 3. 클래스 표기할 땐 파스칼케이스로 사용해보기(단어마다 대문자사용하는데 얘는 첫 단어도 대문자)
+      // class UserInfo //사용자정보
+    </script>
+  </body>
+</html>

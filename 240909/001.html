@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>콘솔</title>
+  </head>
+  <body>
+    <script>
+      console.log("안녕하세요!");
+      //   여러 개 출력
+      console.log("안녕하세요!", "이름소개");
+
+      //   여러 타입
+      console.error("에러");
+      console.warn("경고");
+      console.info("안내"); // 구글에선 디자인적 차이 없음 다른 브라우저는 다를 수도
+
+      //   표
+      console.table({
+        이름: "가나다",
+        위치: "장소",
+      });
+
+      //   시간 정보
+      console.time("tick");
+      console.timeEnd("tick");
+
+      //   스타일 적용하기
+      console.log(
+        "%cHello %cWorld",
+        "color:red; font-size:48px;",
+        "color:royalblue; font-size:15px; font-weight:bold;"
+        // %c 작성한 순서대로 스타일 적용됨
+      );
+    </script>
+  </body>
+</html>

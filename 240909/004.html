@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변수</title>
+  </head>
+  <body>
+    <script>
+      //변수 선언
+      //변수키워드 (var, let, const) 변수이름
+      const name = "이름"; //값 넣어주는 걸 '할당'이라고 함
+      let age = "20";
+      //   let은 재할당 가능 const는 재할당 불가능... const는 할당해줘야 함
+
+      console.log(name, age);
+      //console.log(name, age, gender); //선언하지 않은 값 사용하려고 하면 오류 뜸
+
+      //   변수를 다른 변수에 할당하기
+      let x = 10;
+      let y = x;
+      let z = y;
+      x = 5;
+      console.log("x", x);
+      console.log("y", y);
+      console.log("z", z);
+
+      //재할당
+      let a = 10;
+      a = 5;
+    </script>
+  </body>
+</html>
