@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>008모달</title>
+    <style>
+      .noticeModal {
+        border: 3px solid black;
+        width: 150px;
+        margin: auto;
+
+        flex-direction: column;
+        text-align: center;
+        align-content: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        display: none;
+      }
+      .noticeModal.on {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" class="btn">모달창</button>
+
+    <div class="noticeModal">
+      <h2>제목</h2>
+      <p>내용</p>
+    </div>
+
+    <script>
+      const btn = document.querySelector(".btn");
+      const modal = document.querySelector(".noticeModal");
+
+      btn.addEventListener("click", () => {
+        modal.classList.add("on");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>005</title>
+  </head>
+  <body>
+    <h1>TITLE</h1>
+    <img src="./changeImg_start/images/bat.jpg" alt="bat" />
+    <p class="msg">Hello bat!</p>
+    <button type="button">BUTTON</button>
+
+    <!-- 버튼을 누르면 p태그의 컨텐츠가 h1으로 -->
+
+    <script>
+      const msg = document.querySelector(".msg");
+      const btn = document.querySelector("button");
+      const txt = document.querySelector("h1");
+      const img = document.querySelector("img");
+
+      btn.addEventListener("click", () => {
+        txt.textContent = msg.textContent;
+      });
+
+      console.log(`img src: ${img.src}, img alt: ${img.alt}`);
+      //이미지를 클릭하면 alt값이 h1으로
+      img.addEventListener("click", (e) => {
+        txt.textContent = e.target.alt;
+      });
+    </script>
+  </body>
+</html>

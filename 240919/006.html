@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>006</title>
+  </head>
+  <body>
+    <h1>TITLE</h1>
+    <div class="container">
+      <button type="button">DARK</button>
+      <button type="button">LIGHT</button>
+    </div>
+
+    <script>
+      const h1 = document.querySelector("h1");
+      const btns = document.querySelectorAll(".container button");
+      const btns2 = document.getElementsByTagName("button");
+      //   console.log(btns);
+      //   console.log(btns2);
+
+      btns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          h1.textContent = e.target.textContent;
+        });
+      });
+    </script>
+  </body>
+</html>

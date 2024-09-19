@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Change Image</h1>
+      <p class="view">
+        <img src="./images/cross.jpg" alt="cross" />
+      </p>
+      <figure class="imgList">
+        <img src="./images/cross.jpg" alt="cross" />
+        <img src="./images/witch.jpg" alt="witch" />
+        <img src="./images/ghost.jpg" alt="ghost" />
+        <img src="./images/bat.jpg" alt="bat" />
+        <figcaption>You can select this images</figcaption>
+      </figure>
+    </div>
+
+    <script>
+      /* 변수 설정 
+        const imgList = figure밑의 이미지태그들 지정;
+        const view = 큰 이미지 태그 지정;
+        const h1 = h1태그 지정
+        */
+
+      const imgList = document.querySelectorAll(".imgList img");
+      const view = document.querySelector(".view img");
+      const title = document.querySelector("h1");
+
+      imgList.forEach((img) => {
+        img.addEventListener("click", (e) => {
+          view.src = e.target.src;
+          view.alt = e.target.alt;
+          title.textContent = e.target.alt;
+        });
+      });
+    </script>
+  </body>
+</html>
