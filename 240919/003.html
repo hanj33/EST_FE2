@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>003</title>
+  </head>
+  <body>
+    <div class="container">
+      <p class="msg">What's the next color?</p>
+      <button type="button" id="btn">Change color</button>
+    </div>
+
+    <script>
+      //   document.body.style.backgroundColor = "rgb(255,255,255)";
+      //랜덤지정
+      //Math.floor(Math.random()*256) 사용해보기
+
+      //버튼을 클릭했을 때 배경색을 gold로
+      /*
+      const btn = document.getElementById("btn");
+
+      btn.addEventListener("click", (e) => {
+        document.body.style.backgroundColor = "gold";
+      });
+      */
+      //   btn.addEventListener("click", (e) => {
+      //     document.body.style.backgroundColor = "rgb(140, 140, 140)";
+      //   });
+
+      const body = document.body;
+      const btn = document.getElementById("btn");
+      const p = document.querySelector(".msg");
+
+      btn.addEventListener("click", () => {
+        let color = `rgb( ${random()}, ${random()}, ${random()})`;
+        body.style.backgroundColor = color;
+        p.innerHTML = `Current Color: ${color}`;
+      });
+
+      function random() {
+        return Math.floor(Math.random() * 256);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>002</title>
+    <style>
+      /* .blind {
+        display: none;
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="”wrap”">
+      <h1>
+        <a href="”#”">HOME</a>
+      </h1>
+      <ul>
+        <li>GHOST</li>
+        <li>DRACULAR</li>
+        <li id="ghost">
+          Horror Movie
+          <a href="”#”">view site</a>
+          <span class="blind">SPAN</span>
+        </li>
+      </ul>
+      <p>Hello</p>
+    </div>
+
+    <ul class="list">
+      <li>APPLE</li>
+      <li>MANGO</li>
+      <li>BERRY</li>
+    </ul>
+
+    <script>
+      const ghost = document.querySelector("#ghost");
+
+      console.log("innerHTML: ", ghost.innerHTML);
+      console.log("textContent: ", ghost.textContent);
+      console.log("innerText: ", ghost.innerText);
+
+      //   ghost.innerHTML = 'Hello World <a href="#">LINK</a>';
+
+      ghost.addEventListener("click", (e) => {
+        // ghost.innerHTML = 'Clicked <a href="#">LINK</a>';
+        console.log("target: ", e.target);
+        console.log("currentTarget: ", e.currentTarget);
+      });
+
+      //
+      //ul에 클릭이벤트가 발생했을 때 어떤 목록을 클릭했는지 컨텐츠를 console에 나오게(textContent, innerHTML, innerText)
+      const list = document.querySelector(".list");
+      //   console.log("innerHTML: ", list.innerHTML);
+      //   console.log("textContent: ", list.textContent);
+      //   console.log("innerText: ", list.innerText);
+
+      list.addEventListener("click", (e) => {
+        console.log("click: ", e.target.textContent);
+      });
+    </script>
+  </body>
+</html>
