@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>세액계산기</title>
+    <link rel="stylesheet" href="./1.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>부가세 계산기</h1>
+      <form name="myForm" class="calulator-vat">
+        <ul class="fmList">
+          <li>
+            <label for="price-total">VAT포함 총액</label>
+            <input
+              type="text"
+              id="price-total"
+              name="total"
+              placeholder="총금액입력"
+            />
+          </li>
+          <li>
+            <label for="price-supply">공급가액</label>
+            <input
+              type="text"
+              id="price-supply"
+              name="supply"
+              placeholder="0"
+              readonly
+            />
+          </li>
+          <li>
+            <label for="price-vat">세액</label>
+            <input
+              type="text"
+              id="price-vat"
+              name="vat"
+              placeholder="0"
+              readonly
+            />
+          </li>
+        </ul>
+
+        <div class="btn-area">
+          <button type="reset">다시쓰기</button>
+          <button type="submit">계산하기</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      /* 어케하는거임
+      const fm = document.forms.myForm; //폼들 중에서 이름이 myForm인 애를 갖고 옴
+      let mon1 = document.getElementById("price-supple");
+      let mon2 = document.getElementById("price-vat");
+
+      fm.addEventListener("submit", (e) => {
+        e.preventDefault(); //링크 버튼 무효화,, submit 버튼이 새로고침되는 거 무효화,, 암튼 타입들이 가진 효과를 없앤다나봄
+
+        let total = parseInt(fm.total.value);
+
+        mon1 = Math.round((total / 11) * 10);
+        fm.supple.value = mon1;
+        msg.textContent = fm.user.value;
+      });
+      */
+
+      const fm = document.forms.myForm;
+      fm.addEventListener("submit", getVat);
+
+      function getVat(e) {
+        e.preventDefault();
+        const total = +fm.total.value;
+        const vat = Math.round(total * 0.1);
+        fm.vat.value = vat;
+        fm.supply.value = total - vat;
+      }
+    </script>
+  </body>
+</html>

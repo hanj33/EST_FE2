@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>003폼</title>
+    <link rel="stylesheet" href="./1.css" />
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" id="input" />
+      <!--여기 입력되는 건 결국 다 value값-->
+      <button type="button" id="btn">CLICK</button>
+      <p id="msg"></p>
+    </div>
+
+    <script>
+      const input = document.getElementById("input");
+      const btn = document.getElementById("btn");
+      const msg = document.getElementById("msg");
+
+      btn.addEventListener("click", () => {
+        console.log(input.value, typeof input.value);
+
+        msg.textContent = input.value;
+        input.value = ""; //버튼 클릭하면 입력창에 쓴 내용 지우기
+      });
+    </script>
+  </body>
+</html>

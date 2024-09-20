@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>폼확인</title>
+  </head>
+  <body>
+    <form name="myForm">
+      <input type="text" name="user" />
+      <p id="msg"></p>
+      <div class="btn-area">
+        <button type="reset">다시 쓰기</button>
+        <button type="submit">완료</button>
+      </div>
+    </form>
+
+    <a href="#">링크</a>
+
+    <script>
+      const fm = document.forms.myForm; //폼들 중에서 이름이 myForm인 애를 갖고 옴
+
+      fm.addEventListener("submit", (e) => {
+        e.preventDefault(); //링크 버튼 무효화,, submit 버튼이 새로고침되는 거 무효화,, 암튼 타입들이 가진 효과를 없앤다나봄
+        // console.log("submit!");
+        msg.textContent = fm.user.value;
+      });
+    </script>
+  </body>
+</html>

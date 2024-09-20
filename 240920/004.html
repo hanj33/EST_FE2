@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>색상변경실습</title>
+    <link rel="stylesheet" href="./1.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Change BODY color</h1>
+      <p id="msg">이전색상 : ?</p>
+      <input type="color" id="color" />
+      <input type="text" id="input" name="color" placeholder="input color" />
+      <button type="button" id="btn">CHANGE!</button>
+    </div>
+
+    <script>
+      const input = document.getElementById("input");
+      const btn = document.getElementById("btn");
+      const msg = document.getElementById("msg");
+
+      let beforeColor = ""; //수정 input.value >> ""
+
+      btn.addEventListener("click", () => {
+        const color = input.value; // 수정-추가
+        document.body.style.backgroundColor = color;
+
+        msg.textContent = `${beforeColor}, 지금 색상: ${color}`;
+        input.value = ""; //버튼 클릭하면 입력창에 쓴 내용 지우기
+
+        beforeColor = color; // 수정-추가:: 저장해야 하니까 맨 밑으로
+      });
+
+      color.addEventListener("change", () => {
+        //change는 변화가 있음 확인
+        // console.log("바뀌었습니다!");
+        input.value = color.value;
+      });
+    </script>
+  </body>
+</html>

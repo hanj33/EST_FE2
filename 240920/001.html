@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>001</title>
+    <style>
+      @charset "UTF-8";
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      button,
+      a {
+        transition: 0.4s;
+      }
+
+      ul,
+      ol {
+        list-style: none;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      button,
+      img,
+      fieldset {
+        border: none;
+      }
+
+      .blind,
+      legend {
+        position: absolute;
+        clip: rect(0 0 0 0);
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+      }
+
+      body {
+        background-color: #f5f5f5;
+        font-family: sans-serif;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 500px;
+        margin: 200px auto 0;
+        border-radius: 15px;
+        padding: 1.5rem;
+        border: 1px solid rgba(0, 0, 0, 0.6705882353);
+        background-color: #fff;
+      }
+
+      .msg {
+        font-size: 2rem;
+      }
+
+      .btn,
+      #btn {
+        border-radius: 30px;
+        background-color: #e8e8e8;
+        height: 48px;
+        min-width: 100px;
+        transition: 0.4s;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      .btn:hover,
+      #btn:hover {
+        background-color: rgb(70, 60, 165);
+        color: #fff;
+      }
+
+      .btns button {
+        border-radius: 30px;
+        background-color: #e8e8e8;
+        height: 48px;
+        min-width: 100px;
+        transition: 0.4s;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      .btns button:hover {
+        background-color: rgb(70, 60, 165);
+        color: #fff;
+      }
+
+      input[type="text"],
+      select {
+        border-radius: 30px;
+        border: 1px solid #e8e8e8;
+        height: 42px;
+        min-width: 200px;
+        padding-left: 15px;
+      }
+
+      .imgList {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .imgList img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 5px solid transparent;
+        transition: 0.5s;
+        cursor: pointer;
+      }
+      .imgList img:hover {
+        border-color: #5e3bc5;
+      }
+      .imgList figcaption {
+        flex-basis: 100%;
+      }
+
+      .fmList {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+      }
+      .fmList li {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+      .fmList li .title {
+        flex: 0 0 80px;
+      }
+
+      .btn-area {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+      .btn-area button:only-child {
+        min-width: 200px;
+      }
+      .btn-area button {
+        border-radius: 30px;
+        background-color: #e8e8e8;
+        height: 48px;
+        min-width: 100px;
+        transition: 0.4s;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      .btn-area button:hover {
+        background-color: rgb(70, 60, 165);
+        color: #fff;
+      }
+
+      #msg {
+        text-align: center;
+        margin: 1rem 0;
+        background-color: #f5f5f5;
+        padding: 12px;
+        border-radius: 3px;
+      }
+
+      .chk-container input {
+        margin-right: 5px;
+      }
+
+      input[type="color"] {
+        width: 50px;
+        height: 50px;
+        border: none;
+        background-color: transparent;
+        vertical-align: middle;
+      }
+      input[type="color"]::-webkit-color-swatch {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .count-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+      .count-container span {
+        font-size: 30px;
+      }
+      .count-container button {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+      .count-container button:hover {
+        background-color: rgb(70, 60, 165);
+        color: #fff;
+      }
+
+      .calulator-vat li:after {
+        content: " 원";
+        color: #8a8a8a;
+      }
+
+      input:read-only {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+
+      /*# sourceMappingURL=common.css.map */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Count</h1>
+      <div class="count-container">
+        <button type="button" id="minus">-</button>
+        <span id="num">0</span>
+        <button type="button" id="plus">+</button>
+      </div>
+    </div>
+
+    <!-- ========================= -->
+
+    <script>
+      //   const minusBtn = document.querySelector("#minus");
+      //   const plusBtn = document.querySelector("#plus");
+      //   const num = document.querySelector("#num");
+
+      //   let count = 0;
+      //   plusBtn.addEventListener("click", () => {
+      //     plus.forEach((element) => {
+      //       num.textContent = 0;
+      //       num.textContent++;
+      //     });
+      //   });
+
+      //   /*
+
+      const btns = document.querySelectorAll(".count-container button");
+      const num = document.getElementById("num");
+      let count = 0;
+
+      btns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (btn.id === "plus") {
+            count++;
+          } else {
+            count--;
+          }
+
+          num.textContent = count;
+        });
+      });
+      //   */
+    </script>
+  </body>
+</html>
