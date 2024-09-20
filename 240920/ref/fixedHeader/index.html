@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+</head>
+<body>
+    <header class="page-header">
+        <h1><a href="#"><img src="images/logo.svg" alt="home"></a></h1>
+
+        <div class="inner">
+        <nav class="gnb">
+            <ul>
+                <li><a href="#">About me</a></li>
+                <li><a href="#">Portfolio Web</a></li>
+                <li class="blank"></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        </div>
+    </header>
+    
+    <main role="main" class="page-main">
+        <section>
+            <h2>About me</h2>
+            <p>
+                Hi there! I'm a passionate web developer with expertise in JavaScript, React, EJS, and Express. I love building interactive and user-friendly web applications. Currently, I'm exploring MongoDB for backend development. When I'm not coding, you'll find me hiking or experimenting with new tech stacks. Let's create something awesome together!
+            </p>
+
+            
+        </section>
+    
+        <section class="nav2 clearfix">
+            <h2>Cover Letter</h2>
+            <p>
+                I thrive on solving complex problems and turning ideas into functional, elegant solutions. My attention to detail ensures pixel-perfect designs, and my collaborative spirit makes me a great team player. Whether it's crafting clean code or optimizing performance, I'm always up for the challenge.
+            </p>
+            <p> 
+                In my free time, I enjoy contributing to open-source projects and staying up-to-date with the latest industry trends. I believe in continuous learning and strive to improve my skills every day. Let's connect and build something remarkable!
+            </p>
+         
+            <figure class="thumbView"> 
+                <img src="./images/rect_01.jpg" alt=""> 
+                <img src="./images/rect_02.jpg" alt=""> 
+                <img src="./images/rect_03.jpg" alt=""> 
+                <img src="./images/rect_04.jpg" alt=""> 
+            </figure> 
+        </section> 
+    
+        <section class="contact-container">
+            <h2>Contact Me</h2>
+            <form>
+                <label for="user-name" class="blind">Name</label>
+                <input type="text" id="user-name" name="name" placeholder="Your name.."> 
+                <label for="subject" class="blind">Message</label>
+                <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main> <!-- // page-main -->
+    <footer class="page-footer">
+        <p>
+            <small>&copy; copyrights 2024 <a href="https://www.youtube.com/@codingghost941" target="_blank" class="codingghost">codingghost</a> all rights reserved.</small>
+        </p>
+        <p>
+            <small>&copy; illust design file by <a href="https://www.freepik.com/" target="_blank">freepick.com</a></small>
+        </p>
+    </footer>
+    <a href="#" class="btn-top"><span class="blind">TOP</span></a>
+    <script>
+        const header = document.querySelector('.page-header');
+
+        window.addEventListener('scroll', ()=> { 
+            header.classList.toggle('sticky', window.scrollY >200); 
+        })
+
+        /*
+        window.addEventListener('scroll', ()=> {
+            const y = window.scrollY;
+            if(y > 200) {
+                header.classList.add('sticky')
+            } else {
+                header.classList.remove('sticky')
+            } 
+        })
+            */
+    </script>
+</body>
+</html>

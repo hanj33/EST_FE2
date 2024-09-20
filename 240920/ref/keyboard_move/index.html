@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>walking camel</title>
+    <style>
+        * { margin:0;padding:0;box-sizing:border-box;}
+        img {
+            max-width:100%;
+        }
+        :root {
+            --jump : -20px; 
+            --ground : 0;
+            --left : 20px;
+        }
+        body {
+            padding:50px;
+            background-color:darkslateblue;
+            color:#fff;
+            text-align:center;
+        }
+        #container {
+            border:2px solid #ddd;
+            background-color:darkkhaki;
+            margin-top:30px;
+            height:50vh;
+            min-height:400px;
+            position:relative;
+            overflow:hidden;
+        }
+
+        .champ-container {
+            width:100px;
+            left:var(--left);
+            bottom:50px;
+            position:absolute;
+        }
+       
+        .champ-container .camel {
+            width:100%;
+        }
+
+        .champ-container .msg { 
+            position:absolute;
+            left:10px;
+            top:-100px;
+            background-color:#fff;
+            text-align:center;
+            color:#000;
+            padding:10px 20px;
+            font-size:20px;
+            border-radius:5px;
+            border:1px solid #d8d8d8;
+        }
+ 
+        
+        @keyframes jump {
+            0% { transform:translateY(0)}
+            50% { transform:translateY(var(--jump))}
+            100% { transform:translateY(0)}
+        }
+
+        .jump {
+            animation: jump 0.5s;
+        }
+
+        .ground {
+            height:100px;
+            position:absolute;
+            left:var(--ground);bottom:0;
+            background-color:brown;
+            width:100%;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <h1>MOVE CAMEL</h1>
+    <p>Space : jump, Arrows : move</p>
+
+    <div id="container">
+        <div class="ground"></div>
+        <div class="champ-container">
+            <p class="msg">Let's Go!</p>
+            <img src="./images/camel_ArrowRight.png" alt="camel" title="" class="camel">
+        </div>
+    </div>
+    <script>
+        const docs = document.documentElement;
+        const container = document.getElementById('container');
+        const champ = document.querySelector('.champ-container');
+        const distance = 7; 
+        let mode = '';
+        let posX = champ.offsetLeft;   
+        let box = container.getBoundingClientRect().width; 
+        const keys = [' ', 'SpaceBar', 'ArrowLeft','ArrowRight'];
+         
+        document.body.addEventListener('keydown', moveCamel); 
+        
+        function moveCamel(e) {   
+            if(!keys.includes(e.key)) return false;
+            
+            mode = e.key;
+            if(mode === 'SpaceBar' || mode === ' ') jump();
+            else {
+                walk(mode);
+            } 
+        } 
+ 
+        function jump() {
+            champ.style.transform = `translateY(-${distance*3}px)`;
+            setTimeout(() => { // 점프 후 내려오기 
+                champ.style.transform = `translateY(0)`;
+            }, 150);
+        }
+ 
+        function walk(key) { 
+            if(mode === 'ArrowRight') {
+                posX += distance;
+            } else {
+                posX -= distance;
+            }
+
+            posX = checkArea(posX)
+            console.log('posX :', posX)
+
+            champ.children[0].textContent = posX; 
+            champ.children[1].setAttribute(`src`,`./images/camel_${mode}.png`);  
+            docs.style.setProperty('--left', posX + 'px');
+        }
+
+        function checkArea(x) { 
+            console.log('x:', x)
+            let max = box + 100;
+            let min = -100; 
+            if ( x > max ) {
+                return 0
+            } else if ( x < min) {
+                return box - 100;
+            } else {
+                return x
+            }
+        }
+
+    </script>
+</body>
+</html>
