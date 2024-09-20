@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>입력하면 리스트 추가</title>
+    <style>
+      .btnDel {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- //내코드 -->
+    <!-- <form name="myForm">
+        <input type="text" name="userText" id="userText" />
+        <button type="button" id="btn">+ADD</button>
+    </form>
+    <ul class="foodList"></ul> -->
+
+    <form name="myForm">
+      <input type="text" name="food" />
+      <button type="submit">+ADD</button>
+    </form>
+
+    <ul class="foodList"></ul>
+
+    <script>
+      /*
+            const fm = document.forms.myForm;
+            const foodList = document.querySelector(".foodList");
+
+            const btn = document.getElementById("btn");
+
+            btn.addEventListener("click", () => {
+              let li = document.createElement("LI");
+              li.innerHTML = `
+              ${fm.userText.value}
+              <button type="button" class="btnDel">X</button>
+              `;
+              foodList.appendChild(li);
+              fm.userText.value = "";
+            });
+
+            const btnDel = document.querySelectorAll(".btnDel");
+
+            btnDel.forEach((btn) => {
+              btn.addEventListener("click", function () {
+                console.log(btnDel);
+              });
+            });
+      */
+      //===========================================================
+      //강사님코드
+
+      const fm = document.forms.myForm;
+      const foodList = document.querySelector(".foodList");
+
+      fm.addEventListener("submit", printList);
+
+      function printList(e) {
+        e.preventDefault();
+        let food = e.target.food.value;
+        let li = document.createElement("LI");
+        let btn = document.createElement("BUTTON");
+
+        li.textContent = food;
+
+        btn.setAttribute("type", "button");
+        btn.className = "btn-delete";
+        btn.textContent = "X";
+
+        li.appendChild(btn);
+        foodList.appendChild(li);
+
+        const deleteBtns = document.querySelectorAll(".btn-delete");
+        deleteBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            // this.closest('li').remove();
+            btn.parentElement.remove();
+          });
+        });
+        console.log(deleteBtns);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>요소제어</title>
+    <style>
+      .red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Element</h1>
+    <ul class="foodList"></ul>
+    <button type="button" id="btn">리스트 추가</button>
+
+    <script>
+      const foodList = document.querySelector(".foodList");
+      const li = document.createElement("LI"); //요소생성
+      li.textContent = `APPLE`; // <li>APPLE</li>
+
+      // 1. span 요소 생성하기
+      // 2. span class = "red"
+      // 3. span Mango >> 텍스트
+      // 4. li의 마지막 자식요소로 들어가기
+      /*
+      const span = document.createElement("SPAN");
+      span.className = "red";
+      span.textContent = "MANGO";
+
+      const img = document.createElement("IMG");
+      img.src = "../240919/changeImg_start/images/witch.jpg";
+      img.alt = "witch"; // 오,, 그래도 이건 혼자 어케든 해냈음
+
+      const strong = document.createElement("STRONG");
+      strong.textContent = "STRONG TAG";
+
+      li.appendChild(span);
+      li.appendChild(img);
+
+      li.insertBefore(strong, span); //strong을 span 앞에 넣겠다
+      */
+
+      const btn = document.getElementById("btn");
+
+      btn.addEventListener("click", () => {
+        //여기까지만 쓰고 1도 모르겠음ㅋ 이 밑으로는 강의내용
+
+        let li = document.createElement("LI"); //요소생성
+        li.textContent = `APPLE`; // <li>APPLE</li>
+        foodList.appendChild(li);
+      });
+
+      foodList.appendChild(li);
+    </script>
+  </body>
+</html>
