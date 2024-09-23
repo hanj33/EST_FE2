@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>240923</title>
+  </head>
+  <body>
+    <script>
+      //   function myObj() {
+      //     this.age = 30;
+      //   }
+      //   myObj.prototype.getAge = function () {
+      //     return this.age;
+      //   };
+
+      function myObj2() {
+        let age = 30;
+        function innerFunc() {}
+
+        innerFunc.prototype.getAge = function () {
+          return age; //밑에 있는 걸 여기 안으로 옮긴 거임
+        };
+
+        innerFunc.prototype.setAge = function (x) {
+          age = age + x;
+        };
+
+        return innerFunc;
+      }
+      /*
+      myObj.prototype.getAge = function () {
+        return this.age;
+      };
+      */
+
+      const myObj = myObj2(); // myObj === innerFunc
+      const obj = new myObj();
+      obj.getAge();
+    </script>
+  </body>
+</html>
