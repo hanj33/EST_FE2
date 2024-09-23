@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>240923</title>
+  </head>
+  <body>
+    <!-- <article class="parent">
+      <button class="btn" type="button">버튼</button>
+    </article>
+
+    <script>
+      const parent = document.querySelector(".parent");
+      const btnFirst = document.querySelector(".btn");
+
+      btnFirst.addEventListener(
+        "click",
+        (e) => {
+          // e.stopPropagation();
+          console.log("btn capture!");
+        },
+        true
+      );
+
+      parent.addEventListener(
+        "click",
+        (e) => {
+          // e.stopPropagation();
+          console.log("parent capture!");
+        },
+        true
+      );
+
+      btnFirst.addEventListener("click", (e) => {
+        // e.stopPropagation();
+        console.log("btn bubble!");
+      });
+
+      parent.addEventListener("click", (e) => {
+        // e.stopPropagation();
+        console.log("parent bubble!");
+      });
+    </script> -->
+
+    <!-- ==================================================================================== -->
+    <!-- ==================================================================================== -->
+    <!-- ==================================================================================== -->
+
+    <!-- 앵커의 기본 동작을 중지 -->
+    <!-- <a href="https://paullab.co.kr/" class="link">제주코딩베이스캠프</a>
+    <script>
+      const link = document.querySelector(".link");
+      link.addEventListener("click", (event) => {
+        event.preventDefault(); //이벤트 객체가 지원하는 거라 함.. 페이지 이동해야 하는데 그 이동 안 함>그게 디폴트 쟤가 하는 일
+        console.log("link clicked");
+      });
+    </script> -->
+
+    <!-- ==================================================================================== -->
+    <!-- ==================================================================================== -->
+    <!-- ==================================================================================== -->
+
+    <!-- submit의 기본 동작을 중지 -->
+    <form action="">
+      <button type="submit" class="submit">제출</button>
+    </form>
+    <script>
+      const submit = document.querySelector(".submit");
+      submit.addEventListener("click", (event) => {
+        event.preventDefault();
+        console.log("form submit");
+      });
+    </script>
+  </body>
+</html>
