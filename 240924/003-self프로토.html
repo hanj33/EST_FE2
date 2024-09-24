@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>프로토타입</title>
+  </head>
+  <body>
+    <script>
+      function FoodPicker(foodNames) {
+        this.menu = foodNames;
+      }
+
+      FoodPicker.prototype.sayMenu = function () {
+        console.log(
+          `추천 메뉴는 ${
+            this.menu[Math.floor(Math.random() * foodNames.length)]
+          }`
+        );
+      };
+
+      const robot = new FoodPicker(["메뉴1", "메뉴2", "메뉴3", "메뉴4"]);
+      const robot2 = new FoodPicker(["메뉴1", "메뉴2", "메뉴3", "메뉴4"]);
+      const robot3 = new FoodPicker(["메뉴1", "메뉴2", "메뉴3", "메뉴4"]);
+    </script>
+  </body>
+</html>

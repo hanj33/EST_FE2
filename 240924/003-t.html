@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>프로토타입</title>
+  </head>
+  <body>
+    <script>
+      function Me() {
+        this.name = "라이캣";
+        this.address = "제주도 제주시 인다 1길";
+        this.phoneNum = "010-0000-0000";
+      }
+
+      Me.prototype.canWalk = function () {
+        console.log("라이캣이 걷는다.");
+      };
+
+      Me.prototype.teaching = function (student) {
+        student.levelUp();
+      };
+
+      const me = new Me();
+    </script>
+  </body>
+</html>

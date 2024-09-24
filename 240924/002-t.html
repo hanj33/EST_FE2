@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>생성자함수다같이</title>
+  </head>
+  <body>
+    <script>
+      function FoodPicker(foodNames) {
+        this.menu = foodNames;
+        // this.sayMenu = function () {
+        //   // ...??
+        //   this.menu[Math.floor(Math.random() * foodNames.length)]; // 메뉴 개수만큼 랜덤 돌리기
+        //   //            ㄴ 내림하기
+        //   console.log(
+        //     `추천 메뉴는 ${
+        //       this.menu[Math.floor(Math.random() * foodNames.length)]
+        //     }`
+        //   );
+        // };
+      }
+
+      FoodPicker.prototype.sayMenu = function () {
+        console.log;
+      };
+
+      const robot = new FoodPicker(["메뉴1", "메뉴2", "메뉴3", "메뉴4"]);
+    </script>
+  </body>
+</html>

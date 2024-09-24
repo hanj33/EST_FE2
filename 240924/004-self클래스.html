@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>생성자를 클래스로</title>
+  </head>
+  <body>
+    <script>
+      //   function Me() {
+      //     this.name = "라이캣";
+      //     this.address = "제주도 제주시 인다 1길";
+      //     this.phoneNum = "010-0000-0000";
+      //   }
+
+      //   Me.prototype.canWalk = function () {
+      //     console.log("라이캣이 걷는다.");
+      //   };
+
+      //   Me.prototype.teaching = function (student) {
+      //     student.levelUp();
+      //   };
+
+      class Me {
+        constructor() {
+          this.name = "라이캣";
+          this.address = "제주도 제주시 인다 1길";
+          this.phoneNum = "010-0000-0000";
+
+          this.canWalk = function () {
+            console.log("라이캣이 걷는다.");
+          };
+
+          this.teaching = function () {
+            // 클래스 안에 함수 들어가면 this로 여기라고 지정해주기
+
+            student.levelUp();
+          };
+        }
+
+        // canWalk = function () {
+        //   console.log("라이캣이 걷는다.");
+        // };
+
+        // teaching(student) {
+        //   // 이것처럼 function 키워드 생략 가능
+        //   student.levelUp();
+        // }
+      }
+
+      const me = new Me();
+    </script>
+  </body>
+</html>
