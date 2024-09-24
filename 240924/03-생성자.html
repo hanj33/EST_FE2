@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>240924</title>
+  </head>
+  <body>
+    <script>
+      function NewFactory(name) {
+        this.name = name;
+        this.sayYourName = function () {
+          console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+        };
+      }
+
+      let robot1 = new NewFactory("브랜든");
+      console.log(robot1.name);
+      robot1.sayYourName();
+    </script>
+  </body>
+</html>
