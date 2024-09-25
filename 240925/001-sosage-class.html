@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>클래스상속 소시지 실습</title>
+  </head>
+  <body>
+    <script>
+      // 이거 아닌 거 같은데... 클래스 말고 생성자 쓰라 했던 것 같은데
+      // 어케 하는 거임
+
+      //어렵지 않다고...?
+      /*
+      class Sosage {
+        constructor() {}
+      }
+
+      let taste = new Sosage(["재료1", "재료2"]);
+      */
+
+      class Sausage {
+        constructor(el1, el2) {
+          this.ingr1 = el1;
+          this.ingr2 = el2;
+        }
+
+        taste() {
+          console.log(`오!!!!!!! ${this.ingr1}와 ${this.ingr2}의 맛!!!!!`);
+        }
+      }
+
+      class FiredSausage extends Sausage {
+        taste() {
+          console.log(
+            `오!!!!!!! ${this.ingr1}와 ${this.ingr2}의 맛!!!!! 불향!!!!!!!!!!!!`
+          );
+        }
+      }
+
+      const mySausage = new Sausage("재료1", "재료2");
+
+      const myFiredSausage = new FiredSausage("양파", "마늘");
+    </script>
+  </body>
+</html>
