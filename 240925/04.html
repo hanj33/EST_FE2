@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>비동기프로그래밍 12장</title>
+  </head>
+  <body>
+    <script>
+      /*
+      console.log(1);
+      setTimeout(() => console.log(2), 2000); // 위니북스에서는 출력되지 않습니다.
+      [3, 4, 5].forEach((i) => console.log(i));
+      console.log(6);
+      */
+      // ===========================================================
+      // ===========================================================
+      // ===========================================================
+
+      let result;
+      function xhrRequest() {
+        const requestObj = new XMLHttpRequest();
+        requestObj.open("GET", "message.txt");
+        requestObj.onreadystatechange = () => {
+          if (requestObj.readyState === 4 && requestObj.status === 200) {
+            result = requestObj.responseText;
+            console.log(result); // 콘솔에 무엇이 찍히는지 확인해봅시다.
+          }
+        };
+        requestObj.send(); // 비동기가 된다는데...
+      }
+
+      xhrRequest();
+      console.log(result); // 콘솔에 무엇이 찍히는지 확인해봅시다. :: undefined
+      // 왜?? > 이게 로딩될 때까지 서버에서 받아오지 못함
+    </script>
+  </body>
+</html>

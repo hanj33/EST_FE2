@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX</title>
+  </head>
+  <body>
+    <button id="fetchData">Get Data</button>
+
+    <script>
+      document
+        .getElementById("fetchData")
+        .addEventListener("click", function () {
+          const xhr = new XMLHttpRequest();
+          const url = "https://test.api.weniv.co.kr/mall";
+
+          xhr.open("GET", url);
+
+          xhr.onreadystatechange = function () {
+            const resultDiv = document.getElementById("result");
+
+            if (xhr.readyState === 1) {
+              console.log("연결이 열렸습니다...");
+            } else if (xhr.readyState === 2) {
+              console.log("요청이 서버로 전송되었습니다...");
+            } else if (xhr.readyState === 3) {
+              console.log("데이터를 다운로드 중입니다...");
+            } else if (xhr.readyState === 4) {
+              if (xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+                console.log("데이터 수신 완료!");
+                console.log("응답 데이터: ", response);
+              } else {
+                console.log("오류 발생: " + xhr.status);
+              }
+            }
+          };
+
+          xhr.send();
+        });
+    </script>
+  </body>
+</html>
