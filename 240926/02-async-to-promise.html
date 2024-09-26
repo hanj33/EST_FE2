@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>async</title>
+  </head>
+  <body>
+    <script>
+      function message() {
+        new Promise((resolve) => {
+          setTimeout(() => {
+            resolve("hello");
+          }, 100); // 위에 있는 hello가 밑에 then의 result로 들어감
+        }).then((result) => {});
+
+        const world = new Promise((resolve) => {
+          setTimeout(() => {
+            resolve("world");
+          }, 100);
+        });
+      }
+
+      message();
+      console.log(hello + world);
+    </script>
+  </body>
+</html>

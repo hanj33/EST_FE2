@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      class UserStorage {
+        async searchUser(userName, password) {
+          try {
+            const response = await fetch("05-users.json"); // await 붙여서 끝날 때까지 실행 못하게 멈춰줌
+            if (!response.ok) {
+              throw new Error(`http 에러: ${response.status}`);
+            }
+
+            const datas = await response.json(); // json()도 비동기적으로 작동함
+
+            const user = datas.user.find((item) => {
+              return item.userName === userName && item.password === password;
+            });
+            if (user) {
+              return user.userName;
+            } else {
+              throw new Error(`일치하는 유저가 없습니다.`);
+            } // 네트워크 문제든 뭐든 암튼 실패할 경우를 대비해야 함 그때 쓰는 게 try-catch
+          } catch (error) {
+            throw error;
+          }
+        }
+
+        async sayHi(name) {
+          try {
+            const response = await fetch("05-greetings.json");
+            if (!response.ok) {
+              throw new Error(`http 에러: ${response.status}`);
+            }
+
+            const datas = await response.json();
+
+            const userGreeting = datas.greetings.find((item) => {
+              return item.userName === name;
+            });
+
+            if (user) {
+              return user.userGreeting;
+            } else {
+              throw new Error(`일치하는 유저가 없습니다.`);
+            }
+          } catch (error) {
+            throw error;
+          }
+        }
+      }
+
+      const userStorage = new UserStorage();
+
+      const userName = prompt("이름을 입력하세요");
+      const password = prompt("비밀번호를 입력하세요");
+
+      async function sayHello() {
+        try {
+          const result = await userStorage.searchUser(userName, password);
+
+          const greetingData = await userStorage.sayHi(result);
+
+          alert(
+            `${greetingData.userName}이 당신에게 인사합니다! ${greetingData.greetings}`
+          );
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      sayHello();
+    </script>
+  </body>
+</html>
