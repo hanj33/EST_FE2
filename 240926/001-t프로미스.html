@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>프로미스다함께</title>
+  </head>
+  <body>
+    <script>
+      class UserStorage {
+        // constructor는 여기선 필요가 없대
+        searchUser(userName, password) {
+          return new Promise((resolve, reject) => {
+            const requestObj = new XMLHttpRequest();
+            requestObj.open("GET", "05-users.json");
+            requestObj.onreadystatechange = () => {
+              if (requestObj.readyState === 4 && requestObj.status === 200) {
+                const userList = JSON.parse(requestObj.responseText);
+                const user = userList.user.find((item) => {
+                  return (
+                    item.userName === userName && item.password === password
+                  );
+                });
+
+                if (user) {
+                  resolve(user.userName); // 유저를 찾았을 때
+                } else {
+                  // new Error("no user data"); // 사용자 정의 에러를 만들고 싶을 때 new Error()씀
+                  reject(new Error("no user data")); // 유저를 찾지 못했을 때
+                }
+              }
+            };
+
+            requestObj.send();
+          });
+        }
+
+        sayHi(name) {
+          const requestObj = new XMLHttpRequest();
+          requestObj.open("GET", "05-greetings.json");
+          requestObj.onreadystatechange = () => {
+            if (requestObj.readyState === 4 && requestObj.status === 200) {
+              const hiList = JSON.parse(requestObj.responseText);
+              const userGreeting = hiList.greetings.find((item) => {
+                return item.userName === name;
+              });
+
+              console.log(userGreeting);
+
+              if (userGreeting) {
+                resolve(userGreeting);
+              } else {
+                reject(new Error("no user greeting"));
+              }
+            }
+          };
+
+          requestObj.send();
+        }
+      }
+
+      const userStorage = new UserStorage();
+      const userName = prompt("이름을 입력하세요."); //입력 받기
+      const password = prompt("비밀번호를 입력하세요."); //입력 받기
+
+      userStorage.searchUser(userName, password).then((result) => {
+        // result에 유저이름이 들어옴
+        userStorage
+          .sayHi(result) //sayHi 함수는 promise 반환
+          .then((greetingData) => {
+            alert(
+              `${greetingData.userName} 당신에게 인사합니다! ${greetingData.greetings}`
+            );
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      });
+    </script>
+  </body>
+</html>

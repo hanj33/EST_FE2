@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>콜백지옥을 프로미스 객체로</title>
+  </head>
+  <body>
+    <script>
+      const logIn = new Promise((successLogin, failedLogin) => {
+        const requestObj = new XMLHttpRequest();
+        requestObj.open("GET", "05-users.json");
+        requestObj.onreadystatechange = () => {
+          if (requestObj.readyState === 4) {
+            if (requestObj.status === 200) {
+              const result = JSON.parse(requestObj.responseText);
+              successLogin(result);
+            } else {
+              failedLogin(new Error(`로그인 실패! ${requestObj.status}`));
+            }
+          }
+        };
+        requestObj.send();
+      });
+
+      logIn
+        .then((asyncResult) => {
+          console.log(asyncResult);
+          console.log("커피 주문 성공!");
+          return asyncResult;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    </script>
+  </body>
+</html>
