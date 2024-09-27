@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>리퀘스트애니메이션프레임</title>
+    <style>
+      .box {
+        background-color: darkcyan;
+        width: 150px;
+        height: 150px;
+
+        /* 좀 더 부드럽게 움직이게 만들고 싶어 */
+        transition: 0.4s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" id="box"></div>
+
+    <script>
+      const box = document.getElementById("box");
+      box.style.left = "150px";
+
+      //   box.addEventListener("keydown", function (e) {
+      //     if (e.keyCode === 37) {
+      //       box.style.left = "60px";
+      //       console.log(e);
+      //     }
+      //   });
+
+      document.addEventListener("keydown", move); // 키보드가 눌리면 move라는 이름의 함수 호출
+      let position = 0;
+
+      function move(event) {
+        // move 함수, event 객체
+        console.log(event.key, event.keyCode);
+
+        if (event.key === "ArrowRight" || event.keyCode === 68) {
+          position += 30; // position = position + 5;
+          box.style.transform = `translate(${position}px)`;
+        }
+        if (event.key === "ArrowLeft" || event.keyCode === 65) {
+          position -= 30;
+          box.style.transform = `translate(${position}px)`;
+        }
+      }
+    </script>
+  </body>
+</html>

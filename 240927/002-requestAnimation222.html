@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>리퀘스트애니메이션프레임</title>
+    <style>
+      .box {
+        background-color: darkcyan;
+        width: 150px;
+        height: 150px;
+
+        /* 좀 더 부드럽게 움직이게 만들고 싶어 */
+        transition: 0.4s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" id="box"></div>
+
+    <script>
+      const box = document.getElementById("box");
+
+      document.addEventListener("keydown", move); // 키보드가 눌리면 move라는 이름의 함수 호출
+      document.addEventListener("keyup", stop);
+      let position = 0;
+
+      //   function move(event) {
+      //     console.log(event.key, event.keyCode);
+
+      //     if (event.key === "ArrowRight" || event.keyCode === 68) {
+      //       position += 30; // position = position + 5;
+      //       box.style.transform = `translate(${position}px)`;
+      //     }
+      //     if (event.key === "ArrowLeft" || event.keyCode === 65) {
+      //       position -= 30;
+      //       box.style.transform = `translate(${position}px)`;
+      //     }
+      //   }
+
+      // ================================
+
+      /*
+      while(true) {
+          console.log("실행 중...")
+      } // 무한반복 함부로 넣으면 큰일남 브라우저 멈출 수도 있음.. while이나 for로 만들면 브라우저가 뺑뺑 돌리느라 멈출 수도 있음
+       */
+
+      //   function test() {
+      //     console.log("실행 중...");
+      //     // requestAnimationFrame(test); // 얘도 결국 무한반복임 밖에서 test함수 실행하고 마지막 단계로 또 실행시키는 거니까
+      //     // 근데 얘는 브라우저가 부담 갖지 않음
+      //     // 그게 바로 requestAnimationFrame의 장점.. 게다가 다른 탭 봐서 활성화 안 돼 있으면 동작도 멈춤
+      //     // 그럼 어떻다? 배터리도 절약할 수 있다
+      //   }
+      //   requestAnimationFrame(test);
+
+      let keyState = ""; // 사용자가 무슨 키를 눌렀는지 저장함
+
+      function move(event) {
+        keyState = event.key;
+      }
+
+      function play() {
+        // 사용자가 무슨 키를 누르는지 감시
+        switch (keyState) {
+          case "ArrowRight":
+            position += 10; // position = position + 5;
+            box.style.transform = `translate(${position}px)`;
+            break;
+          case "ArrowLeft":
+            position -= 10;
+            box.style.transform = `translate(${position}px)`;
+            break;
+        } // 헐... 여기까지만 하면 키보드 딱 한 번만 눌러도 멈추지 않고 계속 감
+        // 왜?
+        // keyState 상태가 한번 누른 키값으로 바뀌고 달라지질 않음... 그래서 감시할 때마다 오? 아직 오른쪽? 오오 아직 오른쪽? 계속 오른쪽? 하면서 계속 가는 거임
+        // 그럼 키보드를 뗐을 때 키값 상태를 바꿀 수 있어야 됨("" 이렇게 빈값 넣으면 되겠지)
+        requestAnimationFrame(play);
+      }
+      requestAnimationFrame(play);
+
+      function stop() {
+        keyState = null;
+      } // 여기까지 하면 트랜지션 넣은 것 때문에 되게 기 모으듯이 방출!!!!!! 느낌인데 그거 싫으면 트랜지션 그냥 없애면 됨
+    </script>
+  </body>
+</html>
