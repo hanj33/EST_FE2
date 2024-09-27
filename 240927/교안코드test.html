@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>교안 코드 돌려보기</title>
+  </head>
+  <body>
+    <strong class="target">-target-</strong>
+
+    <script>
+      const target = document.querySelector(".target");
+
+      target.insertAdjacentHTML("beforebegin", "<span>안녕하세요 저는</span>");
+      target.insertAdjacentHTML("afterbegin", "<span>재현입니다</span>");
+      target.insertAdjacentHTML("beforeend", "<span>면접오시면</span>");
+      target.insertAdjacentHTML("afterend", "<span>치킨사드릴게요</span>");
+    </script>
+  </body>
+</html>
