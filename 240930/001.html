@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메모리최적화-이모지추가하기</title>
+  </head>
+  <body>
+    <script>
+      const weniv = ["라이캣", "빙키", "개리", "뮤라"];
+      // 결과: ['라이캣💖', '빙키💖', '개리💖', '뮤라💖'];
+
+      // ....................???? 자바스크립트에선 어떻게 넣어
+      // forEach문 쓴다는데
+
+      //   weniv.forEach((item, index) => {
+      //     weniv[index] = item + "💖";
+      //   }); // 근데 이러면 원본 데이터에 손대는 거니까 사용 지양하기
+
+      const wenivWithEmoji = weniv.map((item) => {
+        return item + "💖";
+      }); // 이러면 가공된 배열이 새로운 변수에 들어감
+
+      console.log(weniv);
+      console.log(wenivWithEmoji);
+    </script>
+  </body>
+</html>

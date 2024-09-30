@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메모리최적화-엄격모드</title>
+  </head>
+  <body>
+    <script>
+      //   "use strict"; //엄격모드 사용하기
+
+      myVal = "hi strict"; // 엄격모드가 아닐 땐 선언한 적 없는 변수에 값 할당할 수 있음... var로 취급됨
+
+      undefined = "undefined"; // undefined는 읽기전용객체인데 이렇게 선언하면 문자열이 들어가나?
+      let test = undefined; // ㄴㄴ
+
+      Infinity = 100; // 이런 식으로 무한대에 값 넣으려고 해도 적용ㄴㄴ 그러나 엄격모드 아닐 땐 오류로는 판단 안 함(적용도 안 해줄 거면서... 그냥 무시함)
+
+      Math.PI = 0; // 이런 거 넣어도 엄격모드 아닐 땐 무시함
+
+      const Employee = {
+        firstName: "이름",
+        lastName: "성",
+      };
+      delete Employee.lastName; // 이러면 이름만 나옴
+      // 근데???? 엄격모드 아닐 땐 지워서 안 되는 것도 지워버림
+      delete Object.prototype; // 안 지워짐 그리고 무시함............. 엄격모드일 땐 오류 처리
+
+      function myFunc(a, a, b) {
+        // 이런 식으로 매개변수 이름이 겹쳐도 사용은 됨
+        console.log(a + a + b); // 이렇게 하면 결과 7 나옴(왜? 2+2+3이라고 보면 됨)
+        // 1 넣었지만 2 들어가면서 헤헤 a가 그러니까 2였지? 하면서 2로 취급하는 듯
+        // 엄격모드에선 동작 안 함
+      }
+      myFunc(1, 2, 3);
+    </script>
+  </body>
+</html>

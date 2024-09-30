@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>240930메모리최적화1-참조카운팅</title>
+  </head>
+  <body>
+    <script>
+      let me = { age: 30 }; // 이값을 저장하기 위해 메모리의 어딘가를 비워둠
+      let you = me; // 이거 선언하면서 나이값 참조하는 개수는 2가 됨
+
+      me = null; // 이러면 이제 나이값의 참조카운트는 1 (you가 가짐)
+      you = null; // 이러면 나이값의 참조카운트는 0 (가비지컬렉터가 삭제할 거임)
+
+      let x = { y: { z: 1 } };
+      // x가 참조하는 객체는 obj1, y가 참조하는 객체는 obj2라고 해보자
+      // obj1은 결국 {y:{z:1}}
+      let a = x; // 이러면 obj1의 참조카운트는 2???? => 2 맞대 (x랑 a가 참조함)
+      x = 1; //이제 obj1의 참조카운트는 1 (a가 참조함)
+
+      let b = a.y; // 그러면 결국 b가 참조하는 건 y의 객체니까 obj2, 이제 obj2의 참조카운트는 2 (a.y랑 b)
+      a = 2; // obj2는 참조카운트가 1이 된대/obj1의 참조카운트는 이제 0 (가비지컬렉터가 지울 값이 돼야 하는데?)
+      // 지울 수 없음... obj1 안에 있는 obj2를 누가 참조하고 있어서 obj1을 지울 수 없음
+      // 집 팔려고 봤더니 방 안에 누가 살고 있는 거잖아 그럼 팔지도 못하고 냅둘 테니까 메모리 누수
+      // 이런 걸 '순환참조'라고 하는데? (순환참조문제?) 최신브라우저에선 이 문제를 해결하기 위해서 마크앤스위프 알고리즘 사용한대
+
+      // 전역변수는 종료될 때까지 존재하니까 사용을 최소화하면서, 혹시 사용하더라도 나중에 직접 삭제해주거나 해야 한대(null)
+
+      // 클로저 사용했을 때 참조 끊어주는 예시...???? 뭐라고 표현해야 되지
+      function outer() {
+        const privateValue = ["test"];
+
+        function inner() {
+          return privateValue; // privateValue에 접근 가능한 건 inner 함수뿐
+        }
+        return inner;
+      }
+
+      const getprivateVal = outer();
+
+      const secretVal = getprivateVal();
+
+      secretVal = null; // 이런 식으로 참조를 끊어줘야 한다나봄
+    </script>
+  </body>
+</html>

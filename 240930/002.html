@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>내이티브밸리데이션</title>
+    <style>
+      .joinForm {
+        display: flex;
+        flex-direction: column;
+      }
+      .joinForm button {
+        width: 60px;
+        padding: 5px;
+        margin-top: 20px;
+      }
+
+      .joinForm input {
+        border-radius: 6px;
+      }
+
+      .joinForm input:required {
+        border: 2px solid blue;
+      }
+      .joinForm input:valid {
+        border: 2px solid green;
+      }
+      .joinForm input:invalid {
+        border: 2px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" class="joinForm">
+      <label for="username"
+        >사용자 이름 (5~10자):
+        <input
+          type="text"
+          id="username"
+          minlength="5"
+          maxlength="10"
+          required
+        />
+      </label>
+      <label for="email"
+        >이메일:
+        <input type="email" id="email" required />
+      </label>
+      <label for="age"
+        >나이 (18~65):
+        <input type="number" id="age" min="18" max="65" required />
+      </label>
+
+      <button>제출</button>
+    </form>
+
+    <!-- 각 입력 필드에 올바른 형식과 제한 조건에 맞는 값을 입력해보세요. 조건에 맞지
+    않는 값을 입력하면 해당 입력 필드의 테두리가 빨간색으로 변하고, 맞는 값을
+    입력하면 녹색으로 변합니다. 입력 필수인 인풋의 테두리는 파랑입니다. 모든
+    필드를 올바르게 입력해야만 폼을 제출할 수 있습니다. -->
+  </body>
+</html>

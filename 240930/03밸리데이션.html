@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>밸리데이션</title>
+    <style>
+      /*
+      valid라는 가상 클래스 선택자?가 있음
+      어라.. 가상 클래스 선택자가 뭐더라?
+      => 실제로 존재하지 않는 걸 선택해서<인가?????? 엥 근데 그건 가상요소 아님? 가상클래스는 뭐임
+      >>> 가상요소는 html상에 존재하지 않는 걸 선택해서 그런 거고
+      가상클래스는???? 존재하지 않는 걸 선택하는 건 맞음 존재하지 않는 클래스를 선택함(hover라거나,, 등등등)
+      별도의 클래스는 없지만? 있는 것처럼 만들어줌 그래서 valid가 뭐냐?
+      input에 입력된 값이 유효할 때 선택하는 선택자...???
+      지정한 밸리데이션을 만족할 때라는 건가?
+      */
+      .text:valid {
+        background-color: whitesmoke;
+      }
+      /*
+      invalid는 valid에 in 붙었으니까,,, 약간 반대속성 같음... 그리고 반대속성 맞음
+      유효하지 않을 때 쓰이는 가상클래스선택자임
+      */
+      .text:invalid {
+        background-color: beige;
+      }
+
+      /* 
+      required가 들어간 애들한테 적용할 속성?
+      */
+      .text:required + label::after {
+        content: "*";
+        color: red;
+        /* 엥 왜 안 나오지 */
+        /* input은 받는 요소라서?? 자식요소를 쓰지 못함 */
+        /* 그래서 input은 label이랑 같이 쓰이니까 label한테 넣을 수 있을 거임 */
+
+        /* 새로 생긴 속성으로 has가 있대 부모 안에 이런 애가 있을 때 넣을 속성?? 그런 건가봄 */
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <!-- minlength = ""는 텍스트의 최소 길이 제한 -->
+      <!-- maxlength = ""는 텍스트의 최대 길이 제한 -->
+      <input type="text" minlength="5" maxlength="8" required class="text" />
+      <label for=""> </label>
+
+      <br />
+
+      <!-- 숫자 인풋에서 min이랑 max 지정하면 이 사이에 있는 숫자 넣어줘야 함 -->
+      <!-- step은 버튼 눌러서 값 조정할 때 얼마씩 늘어날 건지 지정 가능 -->
+      <input type="number" min="5" max="20" step="3" />
+
+      <br /><br />
+
+      <button>제출</button>
+    </form>
+    <script>
+      //   const input = document.querySelector("input");
+      //   input.value = "일이삼사오육칠팔구십";
+    </script>
+  </body>
+</html>
