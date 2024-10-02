@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>240930</title>
+    <style>
+      input:invalid {
+        border: 3px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <input type="text" pattern="[0-9]" />
+      <!-- <input type="number" max="10" min="3" /> -->
+      <button>제출</button>
+    </form>
+
+    <script>
+      const input = document.querySelector("input");
+
+      input.addEventListener("input", () => {
+        console.log(input.validity);
+      });
+
+      //   setCustomValidity;
+      input.setCustomValidity("잘못 입력된 것 같은데");
+    </script>
+  </body>
+</html>

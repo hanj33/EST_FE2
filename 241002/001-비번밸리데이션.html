@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입 비밀번호 입력창 만들기</title>
+    <!-- <link rel="stylesheet" href="../240820/reset.css" /> -->
+    <style>
+      form {
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+      input {
+        border-radius: 5px;
+        display: block;
+        margin-top: 8px;
+      }
+      input:invalid {
+        border: 2px solid red;
+      }
+      /* label.inputError::after {
+        content: "* 입력한 내용을 확인해주세요";
+        color: red;
+        font-size: 12px;
+        position: relative;
+        top: -52px;
+        left: 260px;
+      } */
+      span {
+        display: none;
+        color: red;
+        font-size: 12px;
+      }
+      span.inputError {
+        display: block;
+      }
+      .btn {
+        width: 100px;
+        padding: 10px;
+        background-color: silver;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <!-- 사용자가 입력한 비밀번호를 벨리데이션하는 폼을 만들어 봅시다.
+input은 비밀번호, 비밀번호 확인 두 가지가 있어야하며
+
+이때 만약 
+1. input에 아무것도 입력하지 않았거나
+2. 비밀번호 input과 비밀번호 확인 input의 값이 동일하지 않거나,
+3. 비밀번호의 패턴이 정규표현식과 일치하지 않은 경우
+
+에러메시지를 출력하도록 만들어보세요 -->
+      <label for="password">
+        비밀번호(대소문자, 숫자 포함 8~20자)
+        <input
+          type="text"
+          id="password"
+          minlength="8"
+          maxlength="20"
+          pattern="[a-zA-Z0-9]*"
+          required
+        />
+        <span>* 입력한 내용을 확인해주세요</span>
+      </label>
+      <label for="passwordRe">
+        비밀번호 확인
+        <input
+          type="text"
+          id="passwordRe"
+          minlength="8"
+          maxlength="20"
+          pattern="[a-zA-Z0-9]*"
+          required
+        />
+        <span>* 입력한 내용을 확인해주세요</span>
+      </label>
+
+      <button class="btn btnError">확인</button>
+    </form>
+
+    <script>
+      const input = document.querySelectorAll("input");
+      const btn = document.querySelector("button");
+      const label = document.querySelectorAll("label");
+      const span = document.querySelectorAll("span");
+
+      btn.addEventListener("click", (event) => {
+        console.log(input.validity);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>비번다함께</title>
+    <style>
+      /* 입력 필드 스타일 */
+      input {
+        display: block;
+        margin-bottom: 10px;
+        padding: 5px;
+      }
+
+      input + span {
+        display: block;
+      }
+
+      /* 에러 메시지 스타일 */
+      .error-message {
+        color: red;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- novalidate : 서밋 이벤트가 발생했을 때 브라우저의 기본 벨리데이션이 동작하지 않도록 설정합니다. -->
+    <form novalidate>
+      <label for="password">비밀번호:</label>
+      <!-- HTML의 autocomplete 속성은 웹 개발자가 사용자 에이전트(브라우저)가 폼 필드 값을 자동으로 채워주도록 하며, 해당 필드에 기대되는 값에 대한 정보를 브라우저에 제공할 수 있도록 합니다. -->
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+        autocomplete="new-password"
+      />
+      <!-- new-password: 새로운 비밀번호를 입력해야하는 인풋 필드에 이 속성을 사용해야 합니다. 브라우저가 기존 비밀번호를 실수로 자동으로 입력하는 것을 방지합니다. -->
+      <span class="error-message"></span>
+
+      <label for="confirmPassword">비밀번호 확인:</label>
+      <input
+        type="password"
+        id="confirmPassword"
+        name="confirmPassword"
+        required
+        autocomplete="new-password"
+      />
+      <span class="error-message"></span>
+
+      <button type="submit">제출</button>
+    </form>
+
+    <script>
+      // 계획
+      // 1. 경우에 따른 메시지 등록 2. 에러메시지 출력
+
+      const passwordForm = document.querySelector("form");
+
+      passwordForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        // 인풋요소 선택
+        const password = passwordForm.querySelector("#password");
+        const confirmPassword = passwordForm.querySelector("#confirmPassword");
+
+        // 에러메시지 출력 요소 선택
+        const passwordError = passwordForm.querySelector("#password+span"); // 패스워드 형제인 span
+        const confirmPasswordError = passwordForm.querySelector(
+          "#confirmPassword+span"
+        );
+
+        // 이벤트가 다시 발생하면 초기화해줘야 함
+        password.setCustomValidity("");
+        confirmPassword.setCustomValidity("");
+        passwordError.textContent = "";
+        confirmPasswordError.textContent = "";
+
+        const passwordPattern =
+          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/; //어라라.. 가져온 비번 패턴 regExr
+
+        // 비밀번호를 입력하지 않은 경우
+        if (!password.value) {
+          password.setCustomValidity("비밀번호를 입력해주세요");
+        }
+        // 비밀번호를 입력했지만 패턴과 일치하지 않는 경우
+        else if (!passwordPattern.test(password.value)) {
+          password.setCustomValidity(
+            "비밀번호는 최소 8자이며 영어 대소문자와 숫자, 특수문자가 포함되어야 합니다"
+          );
+        }
+
+        // 비밀번호 확인창을 입력하지 않은 경우
+        if (!confirmPassword.value) {
+          confirmPassword.setCustomValidity("비밀번호 확인을 입력해주세요");
+        }
+        // 비밀번호 확인을 입력했지만 일치하지 않는 경우
+        // else if (!passwordPattern.test(confirmPassword.value)) {
+        else if (password.value !== confirmPassword.value) {
+          // 패턴 확인할 필요 없음,, 비번이랑 일치하는지 확인하면 알아서 확인되니까
+          confirmPassword.setCustomValidity("비밀번호가 일치하지 않습니다");
+        }
+
+        // 메시지 출력
+        if (!password.checkValidity()) {
+          // 소괄호 넣어야 됨checkValidity()
+          passwordError.textContent = password.validationMessage;
+          //validationMessage:: 값을 읽기만 한대 에러메시지 수정은 setCustomValidity 사용하기. 사용자가 등록한 메시지를 출력
+        }
+
+        if (!confirmPassword.checkValidity()) {
+          confirmPasswordError.textContent = password.validationMessage;
+        }
+
+        if (password.checkValidity() && confirmPassword.checkValidity()) {
+          // submit 이벤트를 막았지만 특정 조건을 만족하면 이벤트를 발생시키겠다
+          event.target.submit();
+          // 이벤트타겟이 가리키는 거=> 원래는 이벤트발생객체. 지금 코드: submit이벤트에서의 타겟은 폼 자체
+          // currentTarget이 가리키는 거: 이벤트 등록된 객체. 지금 코드에선 얘도 폼 자체
+        }
+      });
+    </script>
+  </body>
+</html>

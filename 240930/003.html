@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이메일밸리데이션</title>
+  </head>
+  <body>
+    <form>
+      <label for="email">
+        이메일을 입력하세요 <input type="email" id="email" />
+      </label>
+
+      <button type="submit">제출</button>
+    </form>
+
+    <script>
+      // 이메일을 입력하는 인풋창을 만들고 폼을 제출했을 때 만약 이메일 양식에 어긋나면 ‘알맞는 양식의 이메일 주소를 입력하세요’ 메세지를 출력하도록 합니다. 양식이 올바르다면 제출하도록 만들어보세요.
+      const input = document.querySelector("input");
+      const btn = document.querySelector("button");
+
+      //   input.setCustomValidity("알맞은 양식의 이메일 주소를 입력하세요");
+
+      //   input.addEventListener("input", () => {
+      //     //타입에 어긋난 값이 입력된 경우
+      //     if (input.validity.typeMismatch) {
+      //       // 타입이 안 맞을 경우
+      //       input.setCustomValidity("알맞은 양식의 이메일 주소를 입력하세요");
+      //     } else {
+      //       // 어? 타입이 맞네?
+      //       input.setCustomValidity(""); // 이렇게 빈값 넣어주면 알아서 커스텀에러가 false가 됨(valid 만족하게 만들어줌)
+      //     }
+      //   });
+
+      const form = document.querySelector("form");
+
+      //   form.addEventListener("submit", (event) => {
+      //     event.preventDefault;
+      //     if (event.target[0].validity.typeMismatch) {
+      //       input.setCustomValidity("알맞은 양식의 이메일 주소를 입력하세요");
+      //     } else if (event.target[0].validity.valueMissing) {
+      //       input.setCustomValidity("이메일 주소를 입력하세요");
+      //     } else {
+      //       input.setCustomValidity("");
+      //     }
+      //   });
+      btn.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (input.validity.typeMismatch) {
+          input.setCustomValidity("알맞은 양식의 이메일 주소를 입력하세요");
+        } else if (input.validity.valueMissing) {
+          input.setCustomValidity("이메일 주소를 입력하세요");
+        } else {
+          input.setCustomValidity("");
+        }
+      });
+    </script>
+  </body>
+</html>
