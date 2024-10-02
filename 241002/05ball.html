@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>공 애니메이션</title>
+  </head>
+  <body>
+    <canvas width="500" height="500"></canvas>
+
+    <script>
+      const canvas = document.querySelector("canvas");
+
+      const ctx = canvas.getContext("2d");
+
+      class Ball {
+        constructor(xPos, yPos) {
+          this.xPos = xPos;
+          this.yPos = yPos;
+
+          this.radius = 30;
+        }
+
+        drawBall() {
+          ctx.beginPath();
+
+          ctx.arc(this.xPos, this.yPos, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = "teal";
+          ctx.fill();
+        }
+
+        moveBall() {
+          this.xPos += 1;
+          this.yPos += 1;
+        }
+      }
+
+      const ball1 = new Ball(100, 100);
+      //   ball1.drawBall();
+      const ball2 = new Ball(200, 200);
+      //   ball2.drawBall();
+      const ball3 = new Ball(300, 300);
+      //   ball3.drawBall();
+
+      function play() {
+        ctx.clearRect(0, 0, 500, 500); // 어디부터 지울래(xy좌표)? 크기는 어느 정도(캔버스 크기 500x500)?
+
+        ball1.drawBall();
+        ball1.moveBall();
+
+        ball2.drawBall();
+        ball2.moveBall();
+
+        ball3.drawBall();
+        ball3.moveBall();
+        // 이렇게 넣으면 기존에 있던 게 안 지워짐 그냥 늘어나는 것처럼 보임..
+        requestAnimationFrame(play);
+      }
+
+      requestAnimationFrame(play);
+    </script>
+  </body>
+</html>

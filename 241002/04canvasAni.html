@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>캔버스애니</title>
+  </head>
+  <body>
+    <canvas width="600" height="600"></canvas>
+
+    <script>
+      const canvas = document.querySelector("canvas");
+      const ctx = canvas.getContext("2d");
+
+      let xPos = 0;
+
+      function play() {
+        ctx.clearRect(); //모든 걸 다 지워줌
+        ctx.fillRect(xPos, 0, 90, 90);
+        xPos += 5;
+        requestAnimationFrame(play);
+      }
+
+      requestAnimationFrame(play);
+    </script>
+  </body>
+</html>

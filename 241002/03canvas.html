@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>캔버스</title>
+  </head>
+  <body>
+    <body>
+      <canvas width="400" height="400"></canvas>
+
+      <script>
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d"); // 드로잉 컨텍스트를 참조함
+
+        ctx.fillStyle = "teal";
+        ctx.fillRect(0, 0, 150, 150); // x좌표, y좌표, 가로 크기, 세로 크기
+        ctx.fillRect(50, 50, 150, 150); // x좌표, y좌표, 가로 크기, 세로 크기
+        ctx.fillRect(100, 100, 150, 150); // x좌표, y좌표, 가로 크기, 세로 크기
+
+        ctx.beginPath(); // 선 그리기. 이제 선 그릴 거다! 알려주는 게 beginPath()
+
+        ctx.strokeStyle = "salmon"; // 선의 색상
+        ctx.lineWidth = "10px"; // 선의 두께
+        ctx.moveTo(0, 0); // 선의 시작 위치
+        ctx.lineTo(100, 60); // 선의 끝 위치
+        ctx.stroke(); // 자 이제 선을 그려!
+
+        // 동그라미 그리는 건 좀 특이하다는데
+        ctx.beginPath();
+
+        // 라디안이라는 단위를 쓴다는데 라디안 어디에서 들어봤지...
+        // 1 라디안 === 반지름이랑 동일한 길이의 곡선을 그렸을 때 나오는 각도
+        // ctx.arc(200, 50, 50, 0, 0); //나 동그라미 그릴 거야 (x좌표, y좌표, 반지름, 시작각도, 종료각도)
+        // 엥 원에서 각도가 뭔 소리야
+
+        ctx.arc(100, 200, 50, 0, Math.PI * 2);
+        ctx.strokeStyle = "hotpink";
+        ctx.lineWidth = 10;
+        ctx.stroke();
+        ctx.fillStyle = "hotpink";
+        ctx.fill();
+
+        ctx.stroke();
+      </script>
+    </body>
+  </body>
+</html>

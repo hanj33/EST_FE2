@@ -8,6 +8,33 @@
   <body>
     <script>
       const time = new Date();
+
+      console.log(time.getHours());
+
+      if (time.getHours() > 12) {
+        console.log(`${time.getHours() - 12} PM `);
+      } else {
+        console.log(`${time.getHours()} AM `);
+      }
+
+      console.log(time.getDate());
+      console.log(time.getDay());
+      console.log(time.getHours());
+      console.log(time.getMinutes());
+      console.log(time.getSeconds());
+
+      // 24시간을 12시간으로 표기하기
+      const hoursNow = time.getHours();
+      const hours = hoursNow > 12 ? hoursNow - 12 : hoursNow;
+
+      // 24시간을 오전, 오후로 구분하기
+      const 오전오후 = time.getHours() > 11 ? "오후" : "오전";
+
+      // 분이 한자리일 경우 앞에 0 붙이기
+      const minutes =
+        time.getMinutes() >= 10 ? time.getMinutes() : "0" + time.getMinutes();
+
+      const now = `지금은 ${오전오후} ${hours}시 ${minutes}분 입니다.`;
     </script>
   </body>
 </html>
