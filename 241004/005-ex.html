@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>강조</title>
+    <style>
+      .highlight {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore sunt
+      eius quod facere dignissimos, cupiditate deserunt laborum, repellendus
+      minus autem, labore id libero vitae. Ipsum totam beatae aliquam voluptatem
+      omnis! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Necessitatibus cumque eaque iure voluptates, exercitationem aliquam
+      accusamus. Delectus facere mollitia temporibus neque molestiae laudantium,
+      nostrum repudiandae ex, aliquam voluptatibus ipsa unde. Quae iure
+      quibusdam nisi corrupti excepturi enim delectus aperiam pariatur vitae
+      eius culpa, iste illum neque, quos tempora tempore aut. Natus saepe ad
+      sunt corrupti ullam vitae minus optio fugit? Labore odit sit aliquam eum
+      alias omnis id, sint fugiat tempore explicabo dolor! Ab maxime ipsum
+      labore sit, minus optio quod? Dolorem impedit nesciunt minima, dolor a
+      dicta quod laudantium. Vel hic laboriosam unde optio sunt! Consequatur
+      aspernatur id atque laborum at dicta obcaecati vel rerum. Similique neque
+      unde nisi ex. At corporis iste laudantium beatae adipisci. Iste, harum
+      quibusdam. Impedit numquam blanditiis corporis! Ex laboriosam consequatur
+      dicta dolore natus reiciendis suscipit facere, doloremque explicabo sit
+      assumenda quis ullam ut dolor voluptatem sunt! Alias ullam, harum non sint
+      aperiam quasi! Quis amet facilis aliquid soluta laudantium molestias minus
+      repellendus alias hic saepe at incidunt nam maiores fugit quaerat tempora
+      ratione, ipsum eligendi necessitatibus odit autem. Ut aspernatur odio
+      cupiditate esse?
+    </p>
+    <script>
+      //8자 이상인 모든 단어를 노란색으로 강조하기. 마크업에서 단락 텍스트 중 8자 이상인 모든 단어를 강조 표시하세요
+      const paragraph = document.querySelector("p");
+
+      paragraph.innerHTML = paragraph.textContent
+        .split(" ")
+        .map((item) =>
+          item.length >= 8 ? `<strong class="highlight">${item}</strong>` : item
+        )
+        .join(" ");
+    </script>
+  </body>
+</html>

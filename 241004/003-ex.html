@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      function add(x, y, z) {
+        return x + y + z;
+      }
+
+      add(1, 2, 3); // 6
+
+      //커링패턴
+      function curriedAdd(x) {
+        return function (y) {
+          return function (z) {
+            return x + y + z;
+          };
+        };
+      }
+
+      curriedAdd(1)(2)(3); // 첫 번째가 x로, 그 다음은 y로, 그 다음은 z로
+
+      const curriedAdd2 = (x) => {
+        return (y) => {
+          return (z) => {
+            return x + y + z;
+          };
+        };
+      };
+      // 생략하고 생략해서 이렇게 만들기 가능 const curriedAdd2 = x => y => z => x + y + z;
+
+      // 서버로부터 status값을 받을 때, 값에 따라 error 메시지를 다르게 반환하는 함수를 만든다면 어떻게 만들 수 있을까
+      const log = (level) => {
+        return (message) => {
+          console.error(`${level}: ${message}`);
+        };
+      };
+      // 실행 타이밍을 제어할 수 있다고...?
+
+      const msgGood = log("200"); // 인자 하나만 전달(이건 레벨로 들어갈 거임) > 그럼 msgGood에는 메시지어쩌구 함수 들어있을 거임
+      const msgServer = log("500"); // 500번대 에러는 서버 에러
+      const msgClient = log("400"); // 400번대 에러는 요청에 문제가 있는 에러
+
+      //   msgGood("서버와 통신 완료");
+      //   msgServer("서버에 문제가 발생했습니다");
+      //   msgClient("클라이언트에 문제가 있습니다");
+      // 하나의 함수를 사용해서 여러 가지를 만들 수 있는 게 커링패턴의 장점
+
+      // curry 함수는 다중 인자를 받는 함수 fn을 인자로 받음
+      const curry = (fn) => {
+        // curried함수는 인자를 누적해서 필요한 인자 수에 도달하면 fn 함수를 실행함
+        const curried = (...args) => {
+          // fn.length는 fn함수가 필요로 하는 인자의 개수
+          return args.length >= fn.length
+            ? // 필요한 모든 인자가 전달됐을 경우
+              fn(...args)
+            : // 아직 인자가 필요한 것보다 부족한 경우 재귀함수를 통해 인자 수를 계속 증가시킴
+              (...otherArgs) => curried(...args, ...otherArgs);
+          // 스프레드(... 이거) 겹쳐 쓰면 객체 합성(?) 가능 > 여러 객체를 합칠 수 있다는 듯
+          //   console.log(args);
+        };
+
+        return curried;
+      };
+
+      function add(x, y, z) {
+        return x + y + z;
+      }
+      const curriedAdd3 = curry(add);
+
+      //   curriedAdd3(1, 2, 3); // 여기에서 넣은 만큼 위에 (...args)에 들어감
+      console.log(curriedAdd3(1)(2)(3));
+    </script>
+  </body>
+</html>

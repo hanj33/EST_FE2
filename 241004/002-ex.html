@@ -36,26 +36,32 @@
       // 3번은 어케 하지
 
       // 1번 이름 배열 가져오기
-      const name = users.map((item) => item["name"]);
-      // 다함께
-      let names = [];
-      for (let i = 0; i < users.length; i++) {
-        if (users[i].isActive) {
-          names.push(users[i].name);
-        }
-      }
-      console.log(names);
+      //   const name = users.map((item) => item["name"]);
+
+      //   // 다함께
+      //   let names = [];
+      //   for (let i = 0; i < users.length; i++) {
+      //     if (users[i].isActive) {
+      //       names.push(users[i].name);
+      //     }
+      //   }
+      //   console.log(names);
 
       const sortedUsers = [...users];
 
-      for (let i = 0; i < sortedUsers.length; i++) {
+      for (let i = 0; i < sortedUsers.length - 1; i++) {
         // 첫 번째 요소랑 두 번째 요소의 값 비교
-        for (let j = 0; j < sortedUsers.length; j++) {
+        for (let j = 0; j < sortedUsers.length - 1; j++) {
           // 첫 번째 요소가 다른 모든 요소들이랑 비교함 > 끝나면 두 번째 요소가 모든 요소들이랑 비교
+          if (sortedUsers[j].age < sortedUsers[j + 1].age) {
+            let temp = sortedUsers[j];
+            sortedUsers[j] = sortedUsers[j + 1];
+            sortedUsers[j + 1] = temp;
+          }
         }
-        if (sortedUsers[i].age < sortedUsers[i + 1].age) {
-          // 두 번째 요소가 나이가 더 많다! 하면 순서를 바꿔야 함
-        }
+        // if (sortedUsers[i].age < sortedUsers[i + 1].age) {
+        //   // 두 번째 요소가 나이가 더 많다! 하면 순서를 바꿔야 함
+        // }
       }
 
       // 2번 활성화된 사용자만 가져오기(이름만 가져올 것)
@@ -64,6 +70,15 @@
         // 이름만 가져오는 거 어떻게 해야 하지
         // 여기에서 맵 써서 해야 하나...? 그럼 또 새로운 변수 만드는 건데...? 변수 너무 많아지지 않나?
       });
+
+      //   const name = users.map((item) => item["name"]);
+      let names = [];
+      for (let i = 0; i < sortedUsers.length; i++) {
+        if (sortedUsers[i].isActive) {
+          names.push(sortedUsers[i].name);
+        }
+      }
+      console.log(names);
     </script>
   </body>
 </html>
