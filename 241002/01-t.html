@@ -109,7 +109,7 @@
         }
 
         if (!confirmPassword.checkValidity()) {
-          confirmPasswordError.textContent = password.validationMessage;
+          confirmPasswordError.textContent = confirmPassword.validationMessage;
         }
 
         if (password.checkValidity() && confirmPassword.checkValidity()) {

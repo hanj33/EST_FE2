@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>코딩테스트 맛보기</title>
+  </head>
+  <body>
+    <script>
+      // # 1
+      let msg = "hello";
+      let info = "ormi";
+      // 어떻게 하면 두 변수의 값을 서로 바꿀 수 있을까
+
+      msg = info; // 이렇게 넣으면 info가 받아야 할 내용이 사라져서 틀림
+      info = msg; // 이제 msg 내용 ormi네?? 그럼 나두 ormi <대충 이럼
+
+      let temp; // 임시로 변수 하나 만들어주기,, 얘한테 값 복사해두는 거임
+      temp = msg;
+      msg = info;
+      info = temp;
+
+      // # 2
+      let a = 100;
+      let b = 200;
+      // 어떻게 하면 새로운 변수를 선언하지 않고 서로 바꿀 수 있을까
+
+      a = a + b; // a는 이제 300
+      b = a - b; // 300-200 b는 이제 100
+      a = a - b; // 300-100 이제 200
+
+      // # 3
+      // 그럼 1번 문제에서 별도의 변수 없이 할 수 있는 방법은?
+      let msg2 = "hello";
+      let info2 = "ormi";
+
+      msg2 = [msg2, info2]; // 배열로 저장하는 방법
+      info2 = msg2[0];
+      msg2 = msg[1];
+
+      //   const [msg, info] = ["ormi", "hello"] // 배열을 새로 만들기
+    </script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>공 애니메이션</title>
+    <style>
+      canvas {
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas width="500" height="500"></canvas>
+
+    <script>
+      const canvas = document.querySelector("canvas");
+
+      const ctx = canvas.getContext("2d");
+
+      class Ball {
+        constructor(xPos, yPos, xSpeed, ySpeed) {
+          this.xPos = xPos;
+          this.yPos = yPos;
+
+          this.xSpeed = xSpeed;
+          this.ySpeed = ySpeed;
+
+          this.radius = 30;
+        }
+
+        setupBall() {
+          this.drawBall();
+          this.moveBall();
+          this.collisionBall();
+        }
+
+        drawBall() {
+          ctx.beginPath();
+
+          ctx.arc(this.xPos, this.yPos, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = "teal";
+          ctx.fill();
+        }
+
+        moveBall() {
+          //   this.xPos += 2;
+          //   this.yPos += 2;
+          this.xPos += this.xSpeed;
+          this.yPos += this.ySpeed;
+        }
+
+        collisionBall() {
+          // 가장자리에 닿았을 때의 조건 필요 => 화면에서 가장자리는 x축 2개랑(상하) y축 2개(좌우) 있음
+          // 결국 좌표는: 상(0) 하(500) 좌(0) 우(500)
+          // 공의 x축 위치가 0보다 작거나 500보다 크면 반대 방향으로 돌리기
+          if (this.xPos - this.radius < 0 || this.xPos + this.radius > 500) {
+            // this.xPos -= -1라고 해야 하나???? this.xSpeed를 음수로 바꿔야 되는 것 같은데
+            // 그럼 this.xSpeed = -this.xSpeed??
+            this.xSpeed = -this.xSpeed;
+          }
+          // 공의 y축 위치가 0보다 작거나 500보다 크면 반대 방향으로 돌리기
+          if (this.yPos - this.radius < 0 || this.yPos + this.radius > 500) {
+            this.ySpeed = -this.ySpeed;
+          }
+        }
+      }
+
+      const ball1 = new Ball(100, 100, 5, 2);
+      //   ball1.drawBall();
+      const ball2 = new Ball(200, 200, 2, 4);
+      //   ball2.drawBall();
+      const ball3 = new Ball(300, 300, 7, 3);
+      //   ball3.drawBall();
+
+      function play() {
+        ctx.clearRect(0, 0, 500, 500); // 어디부터 지울래(xy좌표)? 크기는 어느 정도(캔버스 크기 500x500)?
+
+        // ball1.drawBall();
+        // ball1.moveBall();
+        // ball1.collisionBall();
+
+        // ball2.drawBall();
+        // ball2.moveBall();
+        // ball2.collisionBall();
+
+        // ball3.drawBall();
+        // ball3.moveBall();
+        // ball3.collisionBall();
+        ball1.setupBall();
+        ball2.setupBall();
+        ball3.setupBall();
+
+        // 이렇게 넣으면 기존에 있던 게 안 지워짐 그냥 늘어나는 것처럼 보임..
+        requestAnimationFrame(play);
+      }
+
+      requestAnimationFrame(play);
+    </script>
+  </body>
+</html>

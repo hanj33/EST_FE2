@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>코딩테스트</title>
+  </head>
+  <body>
+    <script>
+      const users = [
+        {
+          id: 1,
+          name: "재현",
+          isActive: true,
+          age: 20,
+        },
+        {
+          id: 2,
+          name: "호준",
+          isActive: true,
+          age: 18,
+        },
+        {
+          id: 3,
+          name: "유진",
+          isActive: false,
+          age: 30,
+        },
+      ];
+      // 1. 주어진 사용자 배열에서 이름 배열을 얻는 코드를 작성하세요
+      // 2. 활성화된 사용자만 가져오세요 (true인 사용자만 가져오기)
+      // 3. 사용자를 나이 내림차순으로 정렬하세요
+      // 엥
+      // 2번은 필터 쓸 것 같은데...
+      // 1번은 맵? 아마도?
+      // 3번은 어케 하지
+
+      // 1번 이름 배열 가져오기
+      const name = users.map((item) => item["name"]);
+      // 다함께
+      let names = [];
+      for (let i = 0; i < users.length; i++) {
+        if (users[i].isActive) {
+          names.push(users[i].name);
+        }
+      }
+      console.log(names);
+
+      const sortedUsers = [...users];
+
+      for (let i = 0; i < sortedUsers.length; i++) {
+        // 첫 번째 요소랑 두 번째 요소의 값 비교
+        for (let j = 0; j < sortedUsers.length; j++) {
+          // 첫 번째 요소가 다른 모든 요소들이랑 비교함 > 끝나면 두 번째 요소가 모든 요소들이랑 비교
+        }
+        if (sortedUsers[i].age < sortedUsers[i + 1].age) {
+          // 두 번째 요소가 나이가 더 많다! 하면 순서를 바꿔야 함
+        }
+      }
+
+      // 2번 활성화된 사용자만 가져오기(이름만 가져올 것)
+      const activeUser = users.filter((el) => {
+        return el.isActive === true;
+        // 이름만 가져오는 거 어떻게 해야 하지
+        // 여기에서 맵 써서 해야 하나...? 그럼 또 새로운 변수 만드는 건데...? 변수 너무 많아지지 않나?
+      });
+    </script>
+  </body>
+</html>
