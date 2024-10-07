@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>두 값을 비교하기</title>
+  </head>
+  <body>
+    <!--
+    두 개의 데이터를 비교해서 같은지 다른지 확인하는 함수를 만들어주세요.
+    같다면 true, 다르다면 false를 반환합니다.
+    비교 데이터에는 원시자료형과 일반 객체, 배열이 포함됩니다.
+    -->
+    <!-- 
+    왜 일반 객체라고 표현하지?
+    => 자바스크립트에서 지원하는 특수객체들이(Math라거나,, Date라거나) 있어서 그거랑 구분하기 위해
+    -->
+    <script>
+      function compareEqual(a, b) {
+        // 원시자료형과 그 외 자료형의 비교
+        if (typeof a !== typeof b) {
+          // 얘는 왜 부정연산자를 쓸까 > 객체{}랑 배열[]이 둘 다 타입이 object임.. >> true 반환하면 그대로 끝나버리니까 부정연산자 사용
+          return false;
+        }
+
+        // 원시자료형의 비교
+        if (a === b) {
+          return true;
+        }
+
+        // 배열을 포함한 객체의 비교
+        if (typeof a === "object") {
+          if (a.constructor !== b.constructor) {
+            return false;
+          }
+
+          if (Array.isArray(a)) {
+            if (a.length !== b.length) {
+              return false;
+            }
+            for (let i = 0; i < a.length; i++) {
+              if (!compareEqual(a[i], b[i])) {
+                // 순서대로 보면서 어라? 둘이 다르네? 하면 바로 false 반환하는 거임
+                // 근데 forEach를 쓴다? 조건이 있든 말든 끝까지 다~~~ 봄 >> 얜 암것도 반환 안 함
+                // map도 break나 return 못 쓴대 >> 얜 배열 반환
+                return false;
+              }
+            }
+            return true;
+          }
+
+          const keysA = Object.keys(a);
+          const keysB = Object.keys(b);
+
+          if (keysA.length !== keysB.length) {
+            return false;
+          }
+
+          for (let key of keysA) {
+            // key 안에는 keysA 안에 들어있는 요소들이?? 들어감?
+
+            // 객체 key의 비교
+            if (!b.hasOwnProperty(key)) {
+              return false;
+            }
+
+            // 객체의 값의 비교
+            if (!compareEqual(a[key], b[key])) {
+              // a.key로도 쓸 수 있을 거 같은데 왜 a[key]로 쓰는 거임
+              // 전자처럼 쓰면 이름 규칙에 맞지 않을 경우 접근 안 됨
+              // 근데 여기에서 굳이 그걸 안 쓴 이유
+              // 전자처럼 쓰면 값으로 인식해버림... 지금 불러오고 싶은 건 객체 안에 있는 요소인데
+              // 전자의 경우에는 음~ 객체 안에 key라는 키값이 있는 건가? 하게 됨
+              return false;
+            }
+          }
+          return true;
+        }
+
+        return false;
+      }
+    </script>
+  </body>
+</html>

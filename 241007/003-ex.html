@@ -39,9 +39,84 @@
       //     { id: 3, name: '원범', address: '58, Banpo-daero, Seocho-gu' }
       // ]
 
-      function collectUsers() {
-        // ...?????? 어케 해야 하지... 감도 안 와
-      }
+      //   function collectUsers() {
+      //     // ...?????? 어케 해야 하지... 감도 안 와
+      //   }
+
+      // # 1
+      //   let finalResult = [];
+      // ---------------------------------
+      //   getUsers()
+      //     .then((users) => {
+      //       // () 안에는 promise가 성공했을 때의(resolve) 결과가 들어감
+      //       return getUserAddresses().then((userAddresses) => {
+      //         const mergedResult = users.map((user) => {
+      //           const mappedAddress = userAddresses.find((address) => {
+      //             return address.id === user.id;
+      //           });
+
+      //           return { ...user, ...mappedAddress }; // ... << 중복되지 않는 내용이 하나로 합쳐짐
+      //         });
+
+      //         //   console.log(mergedResult);
+      //         return mergedResult;
+      //         // finalResult = mergedResult;
+      //       });
+      //     })
+      //     .then((result) => {
+      //       console.log(result);
+      //       return result;
+      //     })
+      //     .catch((error) => {
+      //       console.error(error);
+      //     });
+
+      // =======================================================
+      // =======================================================
+      // =======================================================
+
+      // # 2
+      //   Promise.all([getUsers(), getUserAddresses()])
+      //     .then(([users, addresses]) => {
+      //       // 배열로 실행했으니까 결과도 배열로 받음
+      //       const mergedResult = users.map((user) => {
+      //         const mappedAddress = addresses.find((address) => {
+      //           return address.id === user.id;
+      //         });
+
+      //         return { ...user, ...mappedAddress };
+      //       });
+
+      //       return mergedResult;
+      //     })
+      //     .then((result) => {
+      //       console.log(result);
+      //     })
+      //     .catch((error) => {
+      //       console.error(error);
+      //     });
+
+      // =======================================================
+      // =======================================================
+      // =======================================================
+
+      // # 3
+      (async () => {
+        const [users, addresses] = await Promise.all([
+          getUsers(),
+          getUserAddresses(),
+        ]);
+
+        const mergedResult = users.map((user) => {
+          const mappedAddress = addresses.find((address) => {
+            return address.id === user.id;
+          });
+
+          return { ...user, ...mappedAddress };
+        });
+
+        console.log(mergedResult);
+      })();
     </script>
   </body>
 </html>
