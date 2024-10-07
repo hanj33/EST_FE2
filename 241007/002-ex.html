@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>url이랑 이메일</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        color: #fff;
+      }
+
+      #mainForm {
+        width: 460px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #ff8787;
+      }
+
+      #mainForm fieldset {
+        border: none;
+      }
+
+      /* 
+    redered legend : https://html.spec.whatwg.org/multipage/rendering.html#rendered-legend 
+    legend는 fieldset의 패딩을 무시합니다.
+*/
+      #mainForm legend {
+        font-size: 1.2em;
+        text-align: center;
+      }
+
+      #mainForm label {
+        display: block;
+      }
+
+      #mainForm input {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 5px;
+        /* 그림자의 수평거리, 수직거리, 그림자 테두리 크기, 그림자의 위치(inset: 내부로)  */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+      }
+
+      /* 가상클래스 valid. input에 입력받은 값이 유효하다면을 의미합니다. */
+      #mainForm input:valid {
+        background-color: #e5ebb2;
+      }
+
+      #mainForm button {
+        /* fieldset은 BFC를 생성하기 때문에 해제가 필요 없습니다. https://html.spec.whatwg.org/multipage/rendering.html#the-fieldset-and-legend-elements */
+        float: right;
+        padding: 10px;
+        margin-left: 10px;
+        background-color: #f8c4b4;
+        cursor: pointer;
+        border-radius: 5px;
+        border: none;
+      }
+
+      #mainForm progress {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+    사용자는 url 혹은 이메일 주소를 입력할 수 있습니다.
+    사용자가 입력한 텍스트에서 특정 패턴을 찾아, 해당 단어에 알맞는 앵커 링크를 추가하고, 이 링크를 클릭하면 관련  기능이 직동하도록 구현하세요.
+
+    입력 패턴은 아래와 같습니다.
+    urlPattern = /(https?://[^\s]+)/;
+    emailPattern = /([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,6})/;
+    -->
+    <form id="mainForm">
+      <fieldset>
+        <label for="userText">url 또는 이메일을 입력하세요</label>
+        <input type="text" required />
+
+        <button type="button">이동하기</button>
+      </fieldset>
+    </form>
+
+    <script>
+      const mainForm = document.getElementById("mainForm");
+      const input = mainForm.querySelector("input");
+      const btn = mainForm.querySelector("button");
+
+      const urlPattern =
+        /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
+      const emailPattern = /([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,6})/;
+
+      // 입력된 값 확인하고 버튼에 앵커 추가...? 이메일이면 "이동하기"에서 "메일 보내기"로 바뀌면 좋을 듯?
+      mainForm.addEventListener("keyup", () => {
+        if (urlPattern.test(input.value) === true) {
+          btn.innerHTML = `<a href="${input.value}" target="_blank">이동하기</a>`;
+        }
+      });
+    </script>
+  </body>
+</html>
