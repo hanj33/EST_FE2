@@ -102,6 +102,9 @@
         if (urlPattern.test(input.value) === true) {
           btn.innerHTML = `<a href="${input.value}" target="_blank">이동하기</a>`;
         }
+        if (emailPattern.test(input.value) === true) {
+          btn.innerHTML = `<a href="mailto:${input.value}" target="_blank">메일 보내기</a>`;
+        }
       });
     </script>
   </body>

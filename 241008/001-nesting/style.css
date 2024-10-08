@@ -1,0 +1,54 @@
+nav {
+  background: #c39bd3;
+  padding: 10px;
+  height: 50px;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: flex-end;
+}
+nav ul li {
+  color: white;
+  margin-right: 10px;
+  background-image: url("./assets/arrow-right-solid.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 14px 14px;
+}
+
+ul li:hover {
+  background: white;
+  cursor: pointer;
+}
+ul li:last-child {
+  border-bottom: 2px solid black;
+}
+
+.alert {
+  padding: 15px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+}
+.alert-success {
+  background-color: teal;
+  color: azure;
+}
+.alert-warning {
+  background-color: yellowgreen;
+  color: orangered;
+}
+
+.article {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.article .article-content {
+  font-size: 14px;
+  opacity: 0.7;
+}
+i {
+  opacity: 0.5;
+}/*# sourceMappingURL=style.css.map */

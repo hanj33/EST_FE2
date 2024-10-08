@@ -1,0 +1,71 @@
+//Scss
+//Scss에서도 HTML처럼 계층구조로 스타일을 적용할 수 있다.
+nav {
+  background: #c39bd3;
+  padding: 10px;
+  height: 50px;
+  ul {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    li {
+      color: white;
+      margin-right: 10px;
+      background : {
+        image: url("./assets/arrow-right-solid.svg");
+        position: center center;
+        repeat: no-repeat;
+        size: 14px 14px;
+      }
+    }
+  }
+}
+
+//Scss
+ul {
+  li {
+    &:hover {
+      background: white;
+      cursor: pointer;
+      // 가상요소
+    }
+    &:last-child {
+      border-bottom: 2px solid black;
+      // 가상클래스
+    }
+  }
+}
+//li 태그의 가상요소와 가상클래스에게 스타일을 적용한 예시
+//&을 사용하여 li와 :hover, :last-child를 연결
+
+.alert {
+  padding: 15px;
+  border: 2px solid transparent;
+
+  border-radius: 5px;
+
+  &-success {
+    background-color: teal;
+    color: azure;
+  }
+
+  &-warning {
+    background-color: yellowgreen;
+    color: orangered;
+  }
+}
+
+//Scss
+.article {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  .article-content {
+    font-size: 14px;
+    opacity: 0.7;
+    @at-root i {
+      opacity: 0.5;
+    }
+  }
+}
