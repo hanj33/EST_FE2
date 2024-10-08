@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스레드</title>
+  </head>
+  <body>
+    <script>
+      //   setTime(() => {
+      //     console.log("fuction2");
+      //   }, 0);
+
+      //   Promise.resolve().then(() => {
+      //     console.log("fuction3");
+      //   });
+      //   console.log("===================== fuction1 ======================");
+
+      function first() {
+        console.log("first start");
+        second();
+        console.log("first end");
+      }
+
+      function second() {
+        console.log("second start");
+        third();
+        console.log("second end");
+      }
+
+      function third() {
+        console.log("third start");
+        console.log("third end");
+      }
+
+      first();
+    </script>
+  </body>
+</html>
