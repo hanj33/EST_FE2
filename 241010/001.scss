@@ -1,0 +1,15 @@
+// Sass 공식문서
+// @debug 100 > 50; // true
+// @debug 10px < 17px; // true
+// @debug 96px >= 1in; // true
+// @debug 1000ms <= 1s; // true
+
+// @debug (5px 7px 10px) != (5px, 7px, 10px); // true
+// @debug (5px 7px 10px) != [5px 7px 10px]; // true // sass의 배열은 [] 대괄호 안 씀
+// @debug (5px 7px 10px) == (5px 7px 10px); // true
+
+//Sass 공식문서
+// @debug 10s + 15s; // 25s
+// @debug 1in - 10px; // 0.8958333333in
+// @debug 5px * 3px; // error 공식문서에는 15px*px 이라고 나옵니다.
+// @debug 1in % 9px; // 0.0625in (1in == 96px)
