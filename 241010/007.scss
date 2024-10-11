@@ -28,6 +28,9 @@
     flex-wrap: wrap;
   }
 
+  // vWidth는 어디서 나온 애지?
+  // each문에서 새로 정의해준 거래
+  // 앞에 있는 키들이 sm이고 뒤에 있는 값이 vWidth라고 보면 되는 듯
   @each $breakpoints, $vWidth in $breakpoints {
     @media (min-width: $vWidth) {
       @for $i from 1 through $columns {
