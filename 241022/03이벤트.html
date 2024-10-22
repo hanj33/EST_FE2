@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제이쿼리-이벤트</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        /* display: none; */
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <script>
+      //JQuery - 요소 선택과 hide
+      //       $("#text").text("Hello");
+      //       $("#divOne").fadeIn(3000);
+      //       $(".textTwo").text("안녕하세요");
+      //       $("h1").text("WOW");
+
+      // div 클릭했을 때 안 보이게 하기
+      // dom이 준비되면 실행해라!
+      $(function () {
+        $("#text").text("Hello");
+        $("#divOne").fadeIn(3000);
+        $(".textTwo").text("안녕하세요");
+        $("h1").text("WOW");
+        $("div").click(function () {
+          $(this).hide();
+        });
+      });
+    </script>
+    <p id="text"></p>
+    <div id="divOne" class="box"></div>
+    <p class="textTwo"></p>
+    <h1></h1>
+  </body>
+</html>

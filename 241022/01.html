@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제이쿼리</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <!--  -->
+    <p>Hello World1</p>
+    <p>Hello World2</p>
+    <p>Hello World3</p>
+    <script>
+      console.log($("p"));
+    </script>
+
+    <!--  -->
+
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+    <script>
+      $("li").eq(3).css("color", "red");
+
+      $("li:even").css("backgroundColor", "yellow");
+    </script>
+
+    <!--  -->
+
+    <input type="checkbox" checked />
+    <span>hi11111</span>
+    <input type="checkbox" />
+    <span>hi22222</span>
+    <input type="checkbox" />
+    <span>hi33333</span>
+    <script>
+      $("input:not(:checked)+span").css("background-color", "yellow");
+    </script>
+
+    <!--  -->
+
+    <br />
+    <br />
+    <br />
+
+    <input name="man-news" />
+    <input name="milkman" />
+    <input name="letterman2" />
+    <input name="newmilk" />
+    <script>
+      $("input[name*='man']").val("has man in it!");
+    </script>
+
+    <!--  -->
+
+    <div>
+      <label>
+        <input type="radio" name="newsletter" value="Hot Fuzz" />
+        <span>name?</span>
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="radio" name="newsletter" value="Cold Fusion" />
+        <span>value?</span>
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="radio" name="newsletter" value="Evil Plans" />
+        <span>value?</span>
+      </label>
+    </div>
+    <script>
+      $("input[value='Hot Fuzz']").next().text("Hot Fuzz");
+    </script>
+
+    <!--  -->
+
+    <p>hello hi</p>
+    <p>hello !!</p>
+    <p>hello world</p>
+    <p>hello</p>
+    <p>hello world</p>
+    <p>world hi</p>
+    <script>
+      $("p:contains(world)").css("color", "red");
+    </script>
+
+    <!--  -->
+
+    <p>Hello, <span>Person</span> <em>and person</em>.</p>
+    <button>Call empty() on above paragraph</button>
+    <script>
+      $("button").click(function () {
+        console.log($("div:empty"));
+        $("p").empty();
+      });
+    </script>
+
+    <!--  -->
+
+    <ul>
+      <li>Does the UL contain an LI?</li>
+    </ul>
+    <ul>
+      hello world
+    </ul>
+    <script>
+      $("ul").has("li").addClass("full");
+    </script>
+
+    <!--  -->
+
+    <div class="wrapper">
+      <h1 class="title">TITLE</h1>
+      <ul class="items">
+        <li class="items">item 1</li>
+        <li class="items">item 2</li>
+      </ul>
+    </div>
+    <script>
+      $("span").parent();
+      $("div").children();
+      $("div").first();
+      $("div").last();
+    </script>
+
+    <div id="div1">
+      <h1 class="title">TITLE</h1>
+      <ul class="items">
+        <li class="items">item 1</li>
+        <li class="items">item 2</li>
+      </ul>
+    </div>
+    <script>
+      $("#div1").fadeIn();
+      $("#div1").fadeOut();
+      $("#div1").fadeToggle();
+      $("#div3").fadeIn(3000); // 모달창, 이미지 갤러리 등에서 사용
+    </script>
+    <!--
+    <script>
+            console.log($("p"));
+            $("li").eq(3).css("color", "red");
+            $("li:even").css("backgroundColor", "yellow");
+            $("input:not(:checked)+span").css("background-color", "yellow");
+    </script>
+    -->
+  </body>
+</html>
