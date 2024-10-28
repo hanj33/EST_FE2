@@ -1,0 +1,17 @@
+.box {
+  margin: 40px;
+  background: blanchedalmond;
+}
+.text {
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+  color: Red;
+}
+
+one {
+  border-top-color: lightgray;
+  border-left-color: lightgray;
+  border-bottom-color: gray;
+  border-right-color: grey;
+}
