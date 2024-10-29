@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스크롤에 따른 진행도</title>
+
+    <style>
+      .target {
+        box-sizing: border-box;
+
+        width: 100%;
+        height: 300px;
+        background-color: rgb(209, 231, 234);
+        border: 5px solid steelblue;
+        border-radius: 20px;
+        padding: 30px;
+
+        margin-bottom: 200px;
+
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .target .userRead {
+        padding: 10px;
+        height: fit-content;
+        background-color: grey;
+        border-radius: 10px;
+        color: white;
+        font-weight: bold;
+
+        transition: 0.5s;
+      }
+      .target.on > .userRead {
+        background-color: seagreen;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="target">
+      <h2>제목</h2>
+      <p class="text">내용</p>
+      <p class="userRead">읽지 않음</p>
+    </section>
+    <section class="target">
+      <h2>제목</h2>
+      <p class="text">내용</p>
+      <p class="userRead">읽지 않음</p>
+    </section>
+    <section class="target">
+      <h2>제목</h2>
+      <p class="text">내용</p>
+      <p class="userRead">읽지 않음</p>
+    </section>
+    <section class="target">
+      <h2>제목</h2>
+      <p class="text">내용</p>
+      <p class="userRead">읽지 않음</p>
+    </section>
+
+    <script>
+      const items = document.querySelectorAll("section");
+
+      const options = {
+        root: null,
+        threshold: 0.8,
+      };
+      const callback = (entries) => {
+        // console.log(entries);
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("on");
+            entry.target.children[2].textContent = "읽음";
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(callback, options);
+
+      items.forEach((item) => {
+        observer.observe(item);
+      });
+    </script>
+  </body>
+</html>

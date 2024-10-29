@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>인터렉션3</title>
+
+    <style>
+      .space {
+        height: 200vh;
+      }
+
+      ul li {
+        padding: 30px;
+        margin: 30px;
+        background-color: teal;
+        color: white;
+
+        border-radius: 10px;
+        text-align: center;
+
+        opacity: 0;
+        transform: translateY(30px);
+
+        transition: 1s;
+      }
+
+      ul li.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="space"></div>
+    <ul>
+      <li>11111111111111111</li>
+      <li>22222222222222222</li>
+      <li>33333333333333333</li>
+    </ul>
+
+    <script>
+      const items = document.querySelectorAll("ul li");
+
+      const options = {
+        root: null, // 이렇게 넣어도 되고 아예 없어도 됨
+        threshold: 0.3,
+      };
+      const callback = (entries) => {
+        // console.log(entry);
+
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(callback, options);
+
+      items.forEach((item) => {
+        observer.observe(item);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IntersectionObserver</title>
+  </head>
+  <body>
+    <div class="target"></div>
+
+    <script>
+      const target = document.querySelector(".target");
+
+      const options = {
+        root: null, // 기본값은 뷰포트를 의미
+        // 인터섹션 옵저버를 구성하는 거: 루트, 타겟(루트랑 상호작용할 수 있는)
+        threshold: 0, // 0(기본값)부터 1까지 있음: 0은 겹치자마자, 1은 완전히 겹쳤을 때
+        // 얼마나 겹칠 것인가?
+      };
+
+      // entry: 타겟이 됨
+      // 어떻게?
+      const callback = (entry) => {
+        console.log(entry); // entry는 배열
+      };
+      const observer = new IntersectionObserver(callback, options);
+
+      // target: 루트객체랑 겹치는 객체
+      observer.observe(target);
+    </script>
+  </body>
+</html>
