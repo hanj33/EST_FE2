@@ -71,6 +71,11 @@
         font-weight: bold;
         color: #4caf50;
       }
+
+      #reading-progress {
+        transition: width 1s ease;
+        /* 애니메이션 속도 */
+      }
     </style>
   </head>
   <body>
@@ -145,6 +150,7 @@
           (readSections.length / readSectionElem.length) * 100; // 노드리스트도 length를 지원
 
         progressBar.value = progressRatio;
+        progressBar.style.width = progressRatio + "%"; // 애니메이션(스타일용 너비)
         progressTxt.textContent = `${progressRatio}%`;
       };
 
