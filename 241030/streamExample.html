@@ -17,13 +17,17 @@
         height: 20px;
         margin: 10px 0;
       }
+      img {
+        width: 1000px;
+        height: 1000px;
+      }
     </style>
   </head>
   <body>
     <article class="container">
       <button>다운로드 시작!</button>
       <progress class="progress-bar" value="0" max="100"></progress>
-      <strong class="status">대기 중......</strong>
+      <strong class="status">대기중...</strong>
       <span class="detail"></span>
 
       <figure>
@@ -37,6 +41,7 @@
       const status = document.querySelector(".status");
       const progressBar = document.querySelector("progress");
       const detail = document.querySelector(".detail");
+      const img = document.querySelector(".downLoadedImage");
 
       btnDown.addEventListener("click", downloadImg);
 
@@ -76,8 +81,10 @@
             // await new Promise(resolve => setTimeout(resolve, 100));
           }
 
+          // chuck 데이터를 모아서 blob 객체로 반환
           const blob = new Blob(chucks);
-          const imgULR = URL.createObjectURL(blob);
+          const imgUrl = URL.createObjectURL(blob);
+          img.src = imgUrl;
         } catch (error) {
           console.error("다운로드 에러: ", error);
         }
