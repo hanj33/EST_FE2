@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>notTdd</title>
+    <style>
+      article {
+        display: inline-block;
+        border: 3px solid black;
+        border-radius: 10px;
+        padding: 10px;
+      }
+
+      .viewer {
+        display: block;
+        font-size: 24px;
+        color: green;
+        margin: 50px 0 50px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <strong class="viewer"></strong>
+      <input type="text" class="inp-txt" />
+      <!-- 서로 다른 언어가 섞여 있습니다. -->
+      <!-- <button class="btn-push">적용</button> -->
+      <button class="btn-push" onclick="push()">적용</button>
+    </article>
+
+    <script>
+      /*
+      const viewer = document.querySelector(".viewer");
+      const input = document.querySelector("input");
+      const btn = document.querySelector(".btn-push");
+
+      btn.addEventListener("click", () => {
+        viewer.textContent = input.value;
+        // input.value = "";
+      });
+      */
+
+      const viewer = document.querySelector(".viewer");
+      viewer.textContent = "Hello";
+
+      function push() {
+        viewer.textContent = document.querySelector(".inp-txt").value;
+      }
+    </script>
+  </body>
+</html>
